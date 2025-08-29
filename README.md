@@ -1,390 +1,351 @@
-# ?? PeopleHub API
+# PeopleHub API
 
-<div align="center">
+API REST desenvolvida em .NET 8 seguindo os princÃ­pios da Arquitetura Limpa e padrÃ£o CQRS para gerenciamento de pessoas.
 
-[![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?style=for-the-badge&logo=dotnet)](https://dotnet.microsoft.com/)
-[![Entity Framework](https://img.shields.io/badge/Entity%20Framework-Core-512BD4?style=for-the-badge&logo=microsoft)](https://docs.microsoft.com/en-us/ef/)
-[![JWT](https://img.shields.io/badge/JWT-Authentication-000000?style=for-the-badge&logo=jsonwebtokens)](https://jwt.io/)
-[![Swagger](https://img.shields.io/badge/Swagger-OpenAPI-85EA2D?style=for-the-badge&logo=swagger)](https://swagger.io/)
-[![xUnit](https://img.shields.io/badge/xUnit-Testing-512BD4?style=for-the-badge&logo=microsoft)](https://xunit.net/)
+## ğŸ—ï¸ Arquitetura
 
-*API REST robusta para gerenciamento de pessoas seguindo Clean Architecture e padrão CQRS*
+O projeto estÃ¡ estruturado em camadas seguindo a Arquitetura Limpa:
 
-</div>
+- **PeopleHub.API**: Camada de apresentaÃ§Ã£o (Controllers, Program.cs)
+- **PeopleHub.Application**: Camada de aplicaÃ§Ã£o (CQRS - Commands, Queries, Handlers, DTOs)
+- **PeopleHub.Domain**: Camada de domÃ­nio (Entidades, Interfaces)
+- **PeopleHub.Infrastructure**: Camada de infraestrutura (RepositÃ³rios, DbContext, ServiÃ§os)
+- **PeopleHub.Test**: Camada de testes unitÃ¡rios (Controllers, Helpers, Test Data Factory)
 
-## ?? Sobre o Projeto
+## ğŸš€ Tecnologias
 
-A **PeopleHub API** é uma aplicação moderna desenvolvida em **.NET 8** que implementa um sistema completo de gerenciamento de pessoas com autenticação JWT, versionamento de API e arquitetura limpa. O projeto demonstra boas práticas de desenvolvimento, incluindo testes unitários abrangentes e documentação OpenAPI.
+- .NET 8
+- Entity Framework Core
+- SQL Server
+- JWT Authentication
+- MediatR (CQRS)
+- BCrypt.Net (Hash de senhas)
+- Swagger/OpenAPI
+- API Versioning
 
-### ? Principais Características
+### ğŸ§ª Tecnologias de Teste
 
-- ??? **Clean Architecture** com separação clara de responsabilidades
-- ?? **CQRS Pattern** usando MediatR para separação de comandos e consultas
-- ?? **Autenticação JWT** robusta com hash BCrypt para senhas
-- ?? **API Versioning** (v1.0 e v2.0) mantendo compatibilidade
-- ?? **CORS** configurado para aceitar qualquer origem
-- ?? **Swagger/OpenAPI** para documentação interativa
-- ?? **Testes Unitários** completos com alta cobertura
-- ? **Validação** robusta de CPF com dígitos verificadores
+- **xUnit**: Framework de teste principal
+- **Moq**: Biblioteca para mocking/simulaÃ§Ã£o
+- **FluentAssertions**: Assertions mais legÃ­veis e expressivas
+- **Microsoft.AspNetCore.Mvc.Testing**: Testes de integraÃ§Ã£o para ASP.NET Core
 
-## ??? Arquitetura
+## ğŸ“‹ Funcionalidades
 
-```
-?? PeopleHub.API/
-??? ?? PeopleHub.API/              # Apresentação (Controllers, Program.cs)
-??? ?? PeopleHub.Application/      # Aplicação (CQRS, DTOs, Handlers)
-??? ??? PeopleHub.Domain/           # Domínio (Entidades, Interfaces)
-??? ?? PeopleHub.Infrastructure/   # Infraestrutura (Repositórios, DbContext)
-??? ?? PeopleHub.Test/             # Testes Unitários (Controllers, Helpers)
-```
+### ğŸ” AutenticaÃ§Ã£o e Registro de UsuÃ¡rios
+- âœ… **Registro de novo usuÃ¡rio**: Cria conta com acesso ao sistema (pessoa + usuÃ¡rio)
+- âœ… **Login**: AutenticaÃ§Ã£o via CPF e senha
+- âœ… **JWT**: Tokens de acesso para endpoints protegidos
 
-### Camadas da Aplicação
+### ğŸ‘¥ Gerenciamento de Pessoas (CRUD Administrativo)
+- âœ… **Cadastro**: Inserir novos registros de pessoas (somente dados pessoais)
+- âœ… **Consulta**: Buscar registros de pessoas (todos ou por ID)
+- âœ… **AlteraÃ§Ã£o**: Atualizar informaÃ§Ãµes de registros existentes
+- âœ… **RemoÃ§Ã£o**: Excluir registros de pessoas
 
-- **API**: Controllers, middlewares, configuração
-- **Application**: Commands, Queries, Handlers, DTOs, validações
-- **Domain**: Entidades de negócio, interfaces, regras de domínio  
-- **Infrastructure**: Implementações de repositórios, serviços, contexto de dados
-- **Test**: Testes unitários com mocking e assertions fluentes
+### Campos da Pessoa
+- **Nome**: obrigatÃ³rio
+- **Sexo**: opcional
+- **E-mail**: opcional, validado se preenchido
+- **Data de Nascimento**: obrigatÃ³ria, validada
+- **Naturalidade**: opcional
+- **Nacionalidade**: opcional
+- **CPF**: obrigatÃ³rio, validado (formato e unicidade)
+- **EndereÃ§o**: obrigatÃ³rio apenas na versÃ£o 2
 
-## ?? Tecnologias
+### Versionamento
+- **v1.0**: VersÃ£o original sem endereÃ§o obrigatÃ³rio
+- **v2.0**: VersÃ£o com endereÃ§o obrigatÃ³rio
 
-### Core
-- ![.NET 8](https://img.shields.io/badge/.NET-8.0-512BD4) **Framework principal**
-- ![Entity Framework](https://img.shields.io/badge/EF%20Core-9.0-512BD4) **ORM para acesso a dados**
-- ![SQL Server](https://img.shields.io/badge/SQL%20Server-Database-CC2927) **Banco de dados**
+## ğŸ§ª Testes UnitÃ¡rios
 
-### Arquitetura & Padrões
-- ![MediatR](https://img.shields.io/badge/MediatR-12.2-FF6B6B) **CQRS Pattern**
-- ![JWT](https://img.shields.io/badge/JWT-Authentication-000000) **Autenticação stateless**
-- ![BCrypt](https://img.shields.io/badge/BCrypt-Hashing-4ECDC4) **Hash seguro de senhas**
+O projeto inclui uma suÃ­te abrangente de testes unitÃ¡rios organizados para garantir a qualidade e confiabilidade do cÃ³digo.
 
-### Documentação & API
-- ![Swagger](https://img.shields.io/badge/Swagger-OpenAPI-85EA2D) **Documentação interativa**
-- ![Versioning](https://img.shields.io/badge/API-Versioning-45B7D1) **Múltiplas versões**
-
-### Testes & Qualidade
-- ![xUnit](https://img.shields.io/badge/xUnit-Framework-512BD4) **Framework de testes**
-- ![Moq](https://img.shields.io/badge/Moq-Mocking-96CEB4) **Simulação de dependências**
-- ![FluentAssertions](https://img.shields.io/badge/FluentAssertions-Readable-FFEAA7) **Assertions expressivas**
-
-## ?? Funcionalidades
-
-### ?? Sistema de Autenticação
-| Funcionalidade | Endpoint | Descrição |
-|---|---|---|
-| ?? **Registro** | `POST /api/Auth/register` | Criar conta com dados pessoais + credenciais |
-| ?? **Login** | `POST /api/Auth/login` | Autenticação via CPF e senha |
-| ?? **JWT Token** | - | Tokens com expiração configurável |
-
-### ?? Gerenciamento de Pessoas
-
-#### Versão 1.0 (Básica)
-| Ação | Endpoint | Descrição |
-|---|---|---|
-| ?? **Listar** | `GET /api/v1.0/PeopleHub` | Buscar todas as pessoas |
-| ?? **Buscar** | `GET /api/v1.0/PeopleHub/{id}` | Buscar pessoa por ID |
-| ? **Criar** | `POST /api/v1.0/PeopleHub` | Adicionar nova pessoa |
-| ?? **Editar** | `PUT /api/v1.0/PeopleHub/{id}` | Atualizar dados |
-| ??? **Excluir** | `DELETE /api/v1.0/PeopleHub/{id}` | Remover pessoa |
-
-#### Versão 2.0 (Com Endereço)
-| Ação | Endpoint | Descrição |
-|---|---|---|
-| ?? **Listar** | `GET /api/v2.0/PeopleHub` | Buscar pessoas + endereços |
-| ?? **Buscar** | `GET /api/v2.0/PeopleHub/{id}` | Buscar pessoa + endereço |
-| ? **Criar** | `POST /api/v2.0/PeopleHub` | Criar com endereço obrigatório |
-| ?? **Editar** | `PUT /api/v2.0/PeopleHub/{id}` | Atualizar + endereço |
-| ??? **Excluir** | `DELETE /api/v2.0/PeopleHub/{id}` | Remover pessoa |
-
-### ?? Campos da Pessoa
-
-| Campo | Tipo | V1 | V2 | Validação |
-|---|---|:---:|:---:|---|
-| **Nome** | `string` | ? | ? | Obrigatório, max 200 chars |
-| **Sexo** | `string` | ? | ? | Opcional, M ou F |
-| **Email** | `string` | ? | ? | Opcional, formato válido |
-| **Data Nascimento** | `DateTime` | ? | ? | Obrigatório, anterior a hoje |
-| **Naturalidade** | `string` | ? | ? | Opcional, max 100 chars |
-| **Nacionalidade** | `string` | ? | ? | Opcional, max 100 chars |
-| **CPF** | `string` | ? | ? | Obrigatório, validação completa |
-| **Endereço** | `string` | ? | ? | Obrigatório apenas na V2 |
-
-## ?? Testes Unitários
-
-### ?? Cobertura Abrangente
+### ğŸ“ Estrutura dos Testes
 
 ```
 PeopleHub.Test/
-??? ?? Controllers/
-?   ??? ? AuthControllerTests.cs          # 100% cobertura auth
-?   ??? ?? Version1/
-?   ?   ??? ? PeopleHubControllerV1Tests.cs # CRUD completo V1
-?   ??? ?? Version2/
-?       ??? ? PeopleHubControllerV2Tests.cs # CRUD completo V2
-??? ?? Helpers/
-    ??? ?? TestDataFactory.cs              # Factory de dados
+â”œâ”€â”€ Controllers/
+â”‚   â”œâ”€â”€ AuthControllerTests.cs           # Testes do controller de autenticaÃ§Ã£o
+â”‚   â”œâ”€â”€ Version1/
+â”‚   â”‚   â””â”€â”€ PeopleHubControllerV1Tests.cs # Testes do controller V1
+â”‚   â””â”€â”€ Version2/
+â”‚       â””â”€â”€ PeopleHubControllerV2Tests.cs # Testes do controller V2
+â””â”€â”€ Helpers/
+    â””â”€â”€ TestDataFactory.cs               # Factory para dados de teste
 ```
 
-### ?? Cenários Testados
+### ğŸ¯ Cobertura de Testes
 
-| Controller | Cenários | Status |
-|---|---|:---:|
-| **AuthController** | Login válido/inválido, registro, exceções | ? 100% |
-| **PeopleHub V1** | CRUD completo, validações, exceções | ? 100% |
-| **PeopleHub V2** | CRUD + endereço, validações específicas | ? 100% |
+#### AuthController
+- âœ… **Login Tests**:
+  - Login com credenciais vÃ¡lidas
+  - Login com username/password vazios
+  - Login com credenciais invÃ¡lidas
+  - Tratamento de exceÃ§Ãµes (ArgumentException, UnauthorizedAccessException, Exception)
+  
+- âœ… **Register Tests**:
+  - Registro com dados vÃ¡lidos
+  - Registro com CPF duplicado
+  - Registro com dados invÃ¡lidos
+  - Tratamento de exceÃ§Ãµes
 
-### ????? Executar Testes
+#### PeopleHubController V1
+- âœ… **GetAll Tests**:
+  - Buscar todas as pessoas (com e sem dados)
+  - Tratamento de exceÃ§Ãµes
+  
+- âœ… **GetById Tests**:
+  - Buscar pessoa existente
+  - Buscar pessoa inexistente
+  - Tratamento de exceÃ§Ãµes
+  
+- âœ… **Create Tests**:
+  - Criar pessoa com dados vÃ¡lidos
+  - Criar pessoa com dados invÃ¡lidos
+  - Criar pessoa com CPF duplicado
+  
+- âœ… **Update Tests**:
+  - Atualizar pessoa existente
+  - Atualizar pessoa inexistente
+  
+- âœ… **Delete Tests**:
+  - Deletar pessoa existente
+  - Deletar pessoa inexistente
+  - Tratamento de exceÃ§Ãµes
 
-```bash
-# Todos os testes
-dotnet test
+#### PeopleHubController V2
+- âœ… **Todos os testes do V1** +
+- âœ… **Testes especÃ­ficos da V2**:
+  - ValidaÃ§Ã£o de endereÃ§o obrigatÃ³rio
+  - Mapeamento correto para PersonDtoV2
+  - Tratamento de erros especÃ­ficos da V2
 
-# Com cobertura
-dotnet test --collect:"XPlat Code Coverage"
+### ğŸ”§ TestDataFactory
 
-# Específicos
-dotnet test --filter "AuthControllerTests"
-dotnet test --filter "PeopleHubController"
-```
+Helper class que fornece mÃ©todos para criar dados de teste consistentes:
 
-## ? Quick Start
+- **PersonDtoV1/V2**: CriaÃ§Ã£o de pessoas vÃ¡lidas e invÃ¡lidas
+- **LoginDto**: Credenciais de login para testes
+- **RegisterDto**: Dados de registro para testes
+- **Response DTOs**: Respostas esperadas dos endpoints
+- **Constantes**: Valores comuns usados nos testes
 
-### ?? Pré-requisitos
+### ğŸƒâ€â™‚ï¸ Executando os Testes
 
-- ![.NET 8 SDK](https://img.shields.io/badge/.NET-8.0%20SDK-512BD4)
-- ![SQL Server](https://img.shields.io/badge/SQL-Server-CC2927) (LocalDB ou instância completa)
-- ![Visual Studio](https://img.shields.io/badge/Visual%20Studio-2022-5C2D91) / ![VS Code](https://img.shields.io/badge/VS%20Code-Editor-007ACC) (opcional)
-
-### ?? Instalação
-
-1. **Clone o repositório**
+1. **Executar todos os testes**:
    ```bash
-   git clone https://github.com/seu-usuario/peoplehub-api.git
-   cd peoplehub-api
+   dotnet test
    ```
 
-2. **Restaure as dependências**
+2. **Executar testes com relatÃ³rio de cobertura**:
+   ```bash
+   dotnet test --collect:"XPlat Code Coverage"
+   ```
+
+3. **Executar testes especÃ­ficos**:
+   ```bash
+   dotnet test --filter "AuthControllerTests"
+   dotnet test --filter "PeopleHubControllerV1Tests"
+   dotnet test --filter "PeopleHubControllerV2Tests"
+   ```
+
+4. **Executar testes no Visual Studio**:
+   - Usar Test Explorer
+   - Executar individualmente ou em grupo
+   - Debug de testes especÃ­ficos
+
+### ğŸ“Š PadrÃµes de Teste Implementados
+
+- **AAA Pattern**: Arrange, Act, Assert
+- **Mocking**: Uso de Moq para isolamento de dependÃªncias
+- **Test Data Builders**: Factory pattern para criaÃ§Ã£o de dados
+- **Tipagem Forte**: Sem uso de `var` nos testes
+- **Assertions Fluentes**: FluentAssertions para melhor legibilidade
+- **Testes de ExceÃ§Ã£o**: VerificaÃ§Ã£o de tratamento de erros
+- **VerificaÃ§Ã£o de InteraÃ§Ãµes**: VerificaÃ§Ã£o de chamadas para dependÃªncias
+
+## ğŸ”§ ConfiguraÃ§Ã£o
+
+### Connection String
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "workstation id=PeopleHub-Staged.mssql.somee.com;packet size=4096;user id=Matheusmarques_SQLLogin_1;pwd=u153bmkblh;data source=PeopleHub-Staged.mssql.somee.com;persist security info=False;initial catalog=PeopleHub-Staged;TrustServerCertificate=True"
+  }
+}
+```
+
+### JWT Settings
+```json
+{
+  "Jwt": {
+    "SecretKey": "MySecretKeyForJWTTokenGeneration123456789",
+    "Issuer": "PeopleHubAPI",
+    "Audience": "PeopleHubUsers"
+  }
+}
+```
+
+## ğŸ“š Endpoints
+
+### ğŸ” AutenticaÃ§Ã£o (PÃºblicos)
+```
+POST /api/Auth/register   # Registro de novo usuÃ¡rio (cria pessoa + usuÃ¡rio)
+POST /api/Auth/login      # Login do usuÃ¡rio
+```
+
+### ğŸ‘¥ Pessoas - VersÃ£o 1.0 (Protegidos - Requer Token)
+```
+GET    /api/v1.0/PeopleHub           # Listar todas as pessoas
+GET    /api/v1.0/PeopleHub/{id}      # Buscar pessoa por ID
+POST   /api/v1.0/PeopleHub           # Criar nova pessoa (somente dados pessoais)
+PUT    /api/v1.0/PeopleHub/{id}      # Atualizar pessoa
+DELETE /api/v1.0/PeopleHub/{id}      # Deletar pessoa
+```
+
+### ğŸ‘¥ Pessoas - VersÃ£o 2.0 (Protegidos - Requer Token)
+```
+GET    /api/v2.0/PeopleHub           # Listar todas as pessoas (com endereÃ§o)
+GET    /api/v2.0/PeopleHub/{id}      # Buscar pessoa por ID (com endereÃ§o)
+POST   /api/v2.0/PeopleHub           # Criar nova pessoa (endereÃ§o obrigatÃ³rio)
+PUT    /api/v2.0/PeopleHub/{id}      # Atualizar pessoa (endereÃ§o obrigatÃ³rio)
+DELETE /api/v2.0/PeopleHub/{id}      # Deletar pessoa
+```
+
+## ğŸ¯ Fluxos de Uso
+
+### ğŸ“ **Fluxo 1: Registro de Novo UsuÃ¡rio (Tela "Criar Conta")**
+```json
+POST /api/Auth/register
+{
+  "nome": "JoÃ£o Silva",
+  "sexo": "M",
+  "email": "joao@email.com",
+  "dataNascimento": "1990-05-15",
+  "naturalidade": "SÃ£o Paulo",
+  "nacionalidade": "Brasileira",
+  "cpf": "12345678901",
+  "password": "minhasenha123"
+}
+```
+**Resultado**: Cria registro na tabela `People` + `Users` (com senha)
+
+### ğŸ”‘ **Fluxo 2: Login**
+```json
+POST /api/Auth/login
+{
+  "username": "12345678901",  // CPF
+  "password": "minhasenha123"
+}
+```
+**Resultado**: Retorna token JWT para acessar endpoints protegidos
+
+### ğŸ‘¥ **Fluxo 3: CRUD Administrativo de Pessoas V1 (SEM senha)**
+```json
+POST /api/v1.0/PeopleHub
+{
+  "nome": "Maria Santos",
+  "sexo": "F",
+  "email": "maria@email.com",
+  "dataNascimento": "1985-03-22",
+  "naturalidade": "Rio de Janeiro",
+  "nacionalidade": "Brasileira",
+  "cpf": "98765432109"
+}
+```
+**Resultado**: Cria APENAS registro na tabela `People` (sem usuÃ¡rio, sem senha)
+
+### ğŸ  **Fluxo 4: CRUD Administrativo de Pessoas V2 (COM endereÃ§o, SEM senha)**
+```json
+POST /api/v2.0/PeopleHub
+{
+  "nome": "Pedro Oliveira",
+  "sexo": "M", 
+  "email": "pedro@email.com",
+  "dataNascimento": "1992-11-08",
+  "naturalidade": "Belo Horizonte",
+  "nacionalidade": "Brasileira",
+  "cpf": "45678912345",
+  "endereco": "Rua da Paz, 789, Belo Horizonte, MG"
+}
+```
+**Resultado**: Cria APENAS registro na tabela `People` com endereÃ§o (sem usuÃ¡rio, sem senha)
+
+## ğŸ§ª UsuÃ¡rios de Teste
+
+### Credenciais (todos com senha: "123456")
+- **admin** / admin@peoplehub.com
+- **user1** / user1@peoplehub.com  
+- **testuser** / test@peoplehub.com
+
+## ğŸ” ValidaÃ§Ãµes Implementadas
+
+### CPF
+- Formato correto (11 dÃ­gitos)
+- ValidaÃ§Ã£o dos dÃ­gitos verificadores
+- Unicidade no banco de dados
+
+### Data de Nascimento
+- Deve ser anterior Ã  data atual
+
+### E-mail
+- Formato vÃ¡lido (quando preenchido)
+
+### Campos ObrigatÃ³rios
+- **V1**: Nome, Data de Nascimento, CPF
+- **V2**: Nome, Data de Nascimento, CPF, EndereÃ§o
+- **Register**: Nome, Data de Nascimento, CPF, Password
+
+## ğŸƒâ€â™‚ï¸ Como Executar
+
+1. **Restaurar pacotes**:
    ```bash
    dotnet restore
    ```
 
-3. **Configure a connection string**
-   ```json
-   // appsettings.json
-   {
-     "ConnectionStrings": {
-       "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=PeopleHubDB;Trusted_Connection=true;TrustServerCertificate=true;"
-     }
-   }
-   ```
-
-4. **Execute as migrations**
+2. **Compilar o projeto**:
    ```bash
-   dotnet ef database update --project PeopleHub.Infrastructure
+   dotnet build
    ```
 
-5. **Execute a aplicação**
+3. **Executar os testes**:
+   ```bash
+   dotnet test
+   ```
+
+4. **Executar a aplicaÃ§Ã£o**:
    ```bash
    dotnet run --project PeopleHub.API
    ```
 
-6. **Acesse o Swagger**
+5. **Acessar o Swagger**:
    ```
    https://localhost:7xxx/swagger
    ```
 
-## ?? Configuração
+## ğŸ¯ PadrÃµes Utilizados
 
-### ?? appsettings.json
+- **CQRS**: SeparaÃ§Ã£o de Commands (escrita) e Queries (leitura)
+- **Repository Pattern**: AbstraÃ§Ã£o do acesso a dados
+- **Dependency Injection**: InversÃ£o de dependÃªncias
+- **Clean Architecture**: SeparaÃ§Ã£o clara de responsabilidades
+- **Domain-Driven Design**: Foco no domÃ­nio da aplicaÃ§Ã£o
+- **Unit Testing**: Testes unitÃ¡rios abrangentes com mocking
+- **Test-Driven Development**: Testes como documentaÃ§Ã£o viva
 
-```json
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "SUA_CONNECTION_STRING_AQUI"
-  },
-  "Jwt": {
-    "SecretKey": "SUA_CHAVE_SECRETA_SUPER_SEGURA_AQUI_COM_PELO_MENOS_32_CARACTERES",
-    "Issuer": "PeopleHubAPI",
-    "Audience": "PeopleHubUsers"
-  },
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft.AspNetCore": "Warning"
-    }
-  },
-  "AllowedHosts": "*"
-}
-```
+## ğŸ“ Notas Importantes
 
-### ?? Configuração JWT
-
-| Parâmetro | Descrição | Exemplo |
-|---|---|---|
-| **SecretKey** | Chave para assinar tokens (min. 32 chars) | `"MinhaChaveSuperSecreta123456789012"` |
-| **Issuer** | Emissor do token | `"PeopleHubAPI"` |
-| **Audience** | Audiência do token | `"PeopleHubUsers"` |
-| **Expiration** | Tempo de vida | `1 hora` (configurável) |
-
-## ?? Exemplos de Uso
-
-### ?? Autenticação
-
-<details>
-<summary><b>1. Registro de Usuário</b></summary>
-
-```bash
-curl -X POST "https://localhost:7xxx/api/Auth/register" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "nome": "João Silva",
-    "sexo": "M",
-    "email": "joao@email.com",
-    "dataNascimento": "1990-05-15",
-    "naturalidade": "São Paulo",
-    "nacionalidade": "Brasileira",
-    "cpf": "12345678901",
-    "password": "minhasenha123"
-  }'
-```
-
-**Resposta:**
-```json
-{
-  "message": "Usuário registrado com sucesso",
-  "username": "12345678901",
-  "email": "joao@email.com"
-}
-```
-</details>
-
-<details>
-<summary><b>2. Login</b></summary>
-
-```bash
-curl -X POST "https://localhost:7xxx/api/Auth/login" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "username": "12345678901",
-    "password": "minhasenha123"
-  }'
-```
-
-**Resposta:**
-```json
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-  "username": "12345678901",
-  "expiresAt": "2024-01-01T15:30:00Z"
-}
-```
-</details>
-
-### ?? Gerenciamento de Pessoas
-
-<details>
-<summary><b>3. Criar Pessoa (V1)</b></summary>
-
-```bash
-curl -X POST "https://localhost:7xxx/api/v1.0/PeopleHub" \
-  -H "Authorization: Bearer SEU_TOKEN_AQUI" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "nome": "Maria Santos",
-    "sexo": "F",
-    "email": "maria@email.com",
-    "dataNascimento": "1985-03-22",
-    "naturalidade": "Rio de Janeiro",
-    "nacionalidade": "Brasileira",
-    "cpf": "98765432109"
-  }'
-```
-</details>
-
-<details>
-<summary><b>4. Criar Pessoa (V2 - Com Endereço)</b></summary>
-
-```bash
-curl -X POST "https://localhost:7xxx/api/v2.0/PeopleHub" \
-  -H "Authorization: Bearer SEU_TOKEN_AQUI" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "nome": "Pedro Oliveira",
-    "sexo": "M",
-    "email": "pedro@email.com",
-    "dataNascimento": "1992-11-08",
-    "naturalidade": "Belo Horizonte",
-    "nacionalidade": "Brasileira",
-    "cpf": "45678912345",
-    "endereco": "Rua da Paz, 789, Belo Horizonte, MG"
-  }'
-```
-</details>
-
-## ?? Validações Implementadas
-
-### ? CPF
-- ? Formato correto (11 dígitos numéricos)
-- ? Validação completa dos dígitos verificadores
-- ? Unicidade no banco de dados
-
-### ? Outros Campos
-- ?? **Data de Nascimento**: Deve ser anterior à data atual
-- ?? **Email**: Formato válido quando preenchido
-- ?? **Nome**: Obrigatório, máximo 200 caracteres
-- ?? **Senha**: Mínimo 6 caracteres (registro)
-
-## ?? Padrões e Boas Práticas
-
-### ??? Arquiteturais
-- ? **Clean Architecture** - Separação clara de responsabilidades
-- ? **CQRS** - Commands separados de Queries
-- ? **Repository Pattern** - Abstração do acesso a dados
-- ? **Dependency Injection** - Inversão de dependências
-
-### ?? Código
-- ? **SOLID Principles** - Código extensível e manutenível
-- ? **Domain-Driven Design** - Foco no domínio da aplicação
-- ? **API Versioning** - Evolução sem quebrar compatibilidade
-- ? **Error Handling** - Tratamento padronizado de exceções
-
-### ?? Testes
-- ? **AAA Pattern** - Arrange, Act, Assert
-- ? **Mocking** - Isolamento de dependências
-- ? **Test Data Builders** - Factory pattern para dados
-- ? **Fluent Assertions** - Assertions legíveis
-
-## ?? Contribuindo
-
-1. **Fork** o projeto
-2. **Clone** sua fork: `git clone https://github.com/seu-usuario/peoplehub-api.git`
-3. **Branch** para sua feature: `git checkout -b feature/nova-funcionalidade`
-4. **Commit** suas mudanças: `git commit -m 'Add: nova funcionalidade'`
-5. **Push** para a branch: `git push origin feature/nova-funcionalidade`
-6. **Pull Request** para a branch main
-
-### ?? Diretrizes
-
-- ? Siga os padrões de código existentes
-- ? Adicione testes para novas funcionalidades
-- ? Documente mudanças na API
-- ? Execute todos os testes antes do PR
-
-## ?? Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-## ????? Autor
-
-**Seu Nome**
-- GitHub: [@seu-usuario](https://github.com/seu-usuario)
-- LinkedIn: [Seu Perfil](https://linkedin.com/in/seu-perfil)
-- Email: seu.email@exemplo.com
-
----
-
-<div align="center">
-
-? **Se este projeto te ajudou, deixe uma estrela!** ?
-
-</div>
+- **SeparaÃ§Ã£o de Responsabilidades**: 
+  - `/api/Auth/register` = Criar conta de usuÃ¡rio (pessoa + login)
+  - `/api/v{version}/PeopleHub` = CRUD administrativo de pessoas (sem login)
+- Todas as mensagens de retorno estÃ£o em portuguÃªs
+- O cÃ³digo estÃ¡ em inglÃªs seguindo boas prÃ¡ticas
+- JWT expira em 1 hora
+- CORS configurado para aceitar qualquer origem
+- ValidaÃ§Ã£o robusta de CPF com dÃ­gitos verificadores
+- Suporte a versionamento de API mantendo compatibilidade
+- **Login por CPF**: O sistema usa o CPF como username para fazer login
+- **Cobertura de Testes**: Testes unitÃ¡rios abrangentes para todos os controllers
+- **Mocking**: Isolamento de dependÃªncias usando Moq
+- **Assertions Fluentes**: Uso de FluentAssertions para melhor legibilidade dos testes
