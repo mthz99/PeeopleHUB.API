@@ -1,0 +1,37 @@
+using MediatR;
+using PeopleHub.Application.DTOs;
+using PeopleHub.Application.Features.People.Queries;
+using PeopleHub.Domain.Entities;
+using PeopleHub.Domain.Interfaces;
+
+namespace PeopleHub.Application.Features.People.Handlers
+{
+    public class GetAllPeopleHandler : IRequestHandler<GetAllPeopleQuery, IEnumerable<PersonDtoV1>>
+    {
+        private readonly IPersonRepository _personRepository;
+
+        public GetAllPeopleHandler(IPersonRepository personRepository)
+        {
+            _personRepository = personRepository;
+        }
+
+        public async Task<IEnumerable<PersonDtoV1>> Handle(GetAllPeopleQuery request, CancellationToken cancellationToken)
+        {
+            IEnumerable<Person> people = await _personRepository.GetAllAsync();
+
+            return people.Select(person => new PersonDtoV1
+            {
+                Id = person.Id,
+                Nome = person.Nome,
+                Sexo = person.Sexo,
+                Email = person.Email,
+                DataNascimento = person.DataNascimento,
+                Naturalidade = person.Naturalidade,
+                Nacionalidade = person.Nacionalidade,
+                CPF = person.CPF,
+                CreatedAt = person.CreatedAt,
+                UpdatedAt = person.UpdatedAt
+            });
+        }
+    }
+}

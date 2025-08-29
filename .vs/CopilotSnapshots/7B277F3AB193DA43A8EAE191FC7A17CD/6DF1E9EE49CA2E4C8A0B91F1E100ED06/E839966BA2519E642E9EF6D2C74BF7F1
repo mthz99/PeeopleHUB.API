@@ -1,0 +1,225 @@
+﻿# PeopleHub API
+
+API REST desenvolvida em .NET 8 seguindo os princípios da Arquitetura Limpa e padrão CQRS para gerenciamento de pessoas.
+
+## 🏗️ Arquitetura
+
+O projeto está estruturado em camadas seguindo a Arquitetura Limpa:
+
+- **PeopleHub.API**: Camada de apresentação (Controllers, Program.cs)
+- **PeopleHub.Application**: Camada de aplicação (CQRS - Commands, Queries, Handlers, DTOs)
+- **PeopleHub.Domain**: Camada de domínio (Entidades, Interfaces)
+- **PeopleHub.Infrastructure**: Camada de infraestrutura (Repositórios, DbContext, Serviços)
+- **PeopleHub.Integration**: Camada de integração (testes, integrações externas)
+
+## 🚀 Tecnologias
+
+- .NET 8
+- Entity Framework Core
+- SQL Server
+- JWT Authentication
+- MediatR (CQRS)
+- BCrypt.Net (Hash de senhas)
+- Swagger/OpenAPI
+- API Versioning
+
+## 📋 Funcionalidades
+
+### Operações CRUD de Pessoas
+- ✅ **Cadastro**: Inserir novos registros de pessoas
+- ✅ **Consulta**: Buscar registros de pessoas (todos ou por ID)
+- ✅ **Alteração**: Atualizar informações de registros existentes
+- ✅ **Remoção**: Excluir registros de pessoas
+
+### Campos da Pessoa
+- **Nome**: obrigatório
+- **Sexo**: opcional
+- **E-mail**: opcional, validado se preenchido
+- **Data de Nascimento**: obrigatória, validada
+- **Naturalidade**: opcional
+- **Nacionalidade**: opcional
+- **CPF**: obrigatório, validado (formato e unicidade)
+- **Endereço**: obrigatório apenas na versão 2
+
+### Versionamento
+- **v1.0**: Versão original sem endereço obrigatório
+- **v2.0**: Versão com endereço obrigatório
+
+### Autenticação e Registro
+- ✅ JWT (JSON Web Token)
+- ✅ Login com usuários pré-cadastrados
+- ✅ **Registro de novos usuários** (integrado com cadastro de pessoas)
+- ✅ Proteção de todos os endpoints exceto login e registro
+
+## 🔧 Configuração
+
+### Connection String
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "workstation id=PeopleHub-Staged.mssql.somee.com;packet size=4096;user id=Matheusmarques_SQLLogin_1;pwd=u153bmkblh;data source=PeopleHub-Staged.mssql.somee.com;persist security info=False;initial catalog=PeopleHub-Staged;TrustServerCertificate=True"
+  }
+}
+```
+
+### JWT Settings
+```json
+{
+  "Jwt": {
+    "SecretKey": "MySecretKeyForJWTTokenGeneration123456789",
+    "Issuer": "PeopleHubAPI",
+    "Audience": "PeopleHubUsers"
+  }
+}
+```
+
+## 📚 Endpoints
+
+### Autenticação
+```
+POST /api/Auth/login      # Login do usuário
+POST /api/Auth/register   # Registro de novo usuário
+```
+
+### Pessoas - Versão 1.0
+```
+GET    /api/v1.0/PeopleHub           # Listar todas as pessoas
+GET    /api/v1.0/PeopleHub/{id}      # Buscar pessoa por ID
+POST   /api/v1.0/PeopleHub           # Criar nova pessoa
+PUT    /api/v1.0/PeopleHub/{id}      # Atualizar pessoa
+DELETE /api/v1.0/PeopleHub/{id}      # Deletar pessoa
+```
+
+### Pessoas - Versão 2.0
+```
+GET    /api/v2.0/PeopleHub           # Listar todas as pessoas (com endereço)
+GET    /api/v2.0/PeopleHub/{id}      # Buscar pessoa por ID (com endereço)
+POST   /api/v2.0/PeopleHub           # Criar nova pessoa (endereço obrigatório)
+PUT    /api/v2.0/PeopleHub/{id}      # Atualizar pessoa (endereço obrigatório)
+DELETE /api/v2.0/PeopleHub/{id}      # Deletar pessoa
+```
+
+## 🧪 Usuários de Teste
+
+### Credenciais (todos com senha: "123456")
+- **admin** / admin@peoplehub.com
+- **user1** / user1@peoplehub.com
+- **testuser** / test@peoplehub.com
+
+## 🔍 Validações Implementadas
+
+### CPF
+- Formato correto (11 dígitos)
+- Validação dos dígitos verificadores
+- Unicidade no banco de dados
+
+### Data de Nascimento
+- Deve ser anterior à data atual
+
+### E-mail
+- Formato válido (quando preenchido)
+
+### Campos Obrigatórios
+- **V1**: Nome, Data de Nascimento, CPF
+- **V2**: Nome, Data de Nascimento, CPF, Endereço
+
+## 🏃‍♂️ Como Executar
+
+1. **Restaurar pacotes**:
+   ```bash
+   dotnet restore
+   ```
+
+2. **Compilar o projeto**:
+   ```bash
+   dotnet build
+   ```
+
+3. **Executar a aplicação**:
+   ```bash
+   dotnet run --project PeopleHub.API
+   ```
+
+4. **Acessar o Swagger**:
+   ```
+   https://localhost:7xxx/swagger
+   ```
+
+## 📖 Como Usar
+
+1. **Registrar novo usuário**:
+   ```json
+   POST /api/Auth/register
+   {
+     "nome": "João Silva",
+     "sexo": "M",
+     "email": "joao@email.com",
+     "dataNascimento": "1990-05-15",
+     "naturalidade": "São Paulo",
+     "nacionalidade": "Brasileira",
+     "cpf": "12345678901",
+     "password": "minhasenha123"
+   }
+   ```
+
+2. **Fazer Login** (com CPF como username):
+   ```json
+   POST /api/Auth/login
+   {
+     "username": "12345678901",
+     "password": "minhasenha123"
+   }
+   ```
+
+3. **Usar o Token**:
+   - Copiar o token retornado
+   - Adicionar no header: `Authorization: Bearer {token}`
+
+4. **Criar Pessoa (V1)**:
+   ```json
+   POST /api/v1.0/PeopleHub
+   {
+     "nome": "Maria Santos",
+     "sexo": "F",
+     "email": "maria@email.com",
+     "dataNascimento": "1985-03-22",
+     "naturalidade": "Rio de Janeiro",
+     "nacionalidade": "Brasileira",
+     "cpf": "98765432109"
+   }
+   ```
+
+5. **Criar Pessoa (V2)**:
+   ```json
+   POST /api/v2.0/PeopleHub
+   {
+     "nome": "Pedro Oliveira",
+     "sexo": "M",
+     "email": "pedro@email.com",
+     "dataNascimento": "1992-11-08",
+     "naturalidade": "Belo Horizonte",
+     "nacionalidade": "Brasileira",
+     "cpf": "45678912345",
+     "endereco": "Rua da Paz, 789, Belo Horizonte, MG"
+   }
+   ```
+
+## 🎯 Padrões Utilizados
+
+- **CQRS**: Separação de Commands (escrita) e Queries (leitura)
+- **Repository Pattern**: Abstração do acesso a dados
+- **Dependency Injection**: Inversão de dependências
+- **Tipagem Forte**: Sem uso de `var`, tipagem explícita
+- **Clean Architecture**: Separação clara de responsabilidades
+- **Domain-Driven Design**: Foco no domínio da aplicação
+
+## 📝 Notas Importantes
+
+- Todas as mensagens de retorno estão em português
+- O código está em inglês seguindo boas práticas
+- JWT expira em 1 hora
+- CORS configurado para aceitar qualquer origem
+- Validação robusta de CPF com dígitos verificadores
+- Suporte a versionamento de API mantendo compatibilidade
+- **Registro integrado**: Ao criar uma conta, o usuário é registrado tanto na tabela Users quanto na tabela People
+- **Login por CPF**: O sistema usa o CPF como username para fazer login

@@ -1,0 +1,168 @@
+﻿using PeopleHub.Application.DTOs;
+
+namespace PeopleHub.Test.Helpers
+{
+    public static class TestDataHelper
+    {
+        #region Person Test Data
+
+        public static PersonDtoV1 CreateValidPersonDtoV1(int id = 1)
+        {
+            return new PersonDtoV1
+            {
+                Id = id,
+                Nome = "João Silva",
+                Sexo = "M",
+                Email = "joao@email.com",
+                DataNascimento = new DateTime(1990, 5, 15),
+                Naturalidade = "São Paulo",
+                Nacionalidade = "Brasileira",
+                CPF = "12345678901"
+            };
+        }
+
+        public static PersonDtoV2 CreateValidPersonDtoV2(int id = 1)
+        {
+            return new PersonDtoV2
+            {
+                Id = id,
+                Nome = "João Silva",
+                Sexo = "M",
+                Email = "joao@email.com",
+                DataNascimento = new DateTime(1990, 5, 15),
+                Naturalidade = "São Paulo",
+                Nacionalidade = "Brasileira",
+                CPF = "12345678901",
+                Endereco = "Rua das Flores, 123, São Paulo, SP"
+            };
+        }
+
+        public static IEnumerable<PersonDtoV1> CreatePersonListV1()
+        {
+            return new List<PersonDtoV1>
+            {
+                new PersonDtoV1
+                {
+                    Id = 1,
+                    Nome = "João Silva",
+                    CPF = "12345678901",
+                    DataNascimento = new DateTime(1990, 5, 15),
+                    Email = "joao@email.com"
+                },
+                new PersonDtoV1
+                {
+                    Id = 2,
+                    Nome = "Maria Santos",
+                    CPF = "98765432109",
+                    DataNascimento = new DateTime(1985, 3, 22),
+                    Email = "maria@email.com"
+                },
+                new PersonDtoV1
+                {
+                    Id = 3,
+                    Nome = "Pedro Oliveira",
+                    CPF = "45678912345",
+                    DataNascimento = new DateTime(1992, 11, 8),
+                    Email = "pedro@email.com"
+                }
+            };
+        }
+
+        #endregion
+
+        #region Auth Test Data
+
+        public static LoginDto CreateValidLoginDto()
+        {
+            return new LoginDto
+            {
+                Username = "12345678901",
+                Password = "123456"
+            };
+        }
+
+        public static LoginResponseDto CreateValidLoginResponse()
+        {
+            return new LoginResponseDto
+            {
+                Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.fake_token",
+                Username = "12345678901",
+                ExpiresAt = DateTime.UtcNow.AddHours(1)
+            };
+        }
+
+        public static RegisterDto CreateValidRegisterDto()
+        {
+            return new RegisterDto
+            {
+                Nome = "João Silva",
+                Sexo = "M",
+                Email = "joao@email.com",
+                DataNascimento = new DateTime(1990, 5, 15),
+                Naturalidade = "São Paulo",
+                Nacionalidade = "Brasileira",
+                CPF = "12345678901",
+                Password = "123456"
+            };
+        }
+
+        public static RegisterResponseDto CreateValidRegisterResponse()
+        {
+            return new RegisterResponseDto
+            {
+                Message = "Usuário registrado com sucesso",
+                Username = "12345678901",
+                Email = "joao@email.com"
+            };
+        }
+
+        #endregion
+
+        #region Invalid Test Data
+
+        public static PersonDtoV1 CreatePersonDtoV1WithInvalidCPF()
+        {
+            var person = CreateValidPersonDtoV1();
+            person.CPF = "invalid_cpf";
+            return person;
+        }
+
+        public static PersonDtoV2 CreatePersonDtoV2WithoutAddress()
+        {
+            var person = CreateValidPersonDtoV2();
+            person.Endereco = string.Empty;
+            return person;
+        }
+
+        public static LoginDto CreateLoginDtoWithEmptyUsername()
+        {
+            return new LoginDto
+            {
+                Username = "",
+                Password = "123456"
+            };
+        }
+
+        public static RegisterDto CreateRegisterDtoWithInvalidCPF()
+        {
+            var register = CreateValidRegisterDto();
+            register.CPF = "invalid_cpf";
+            return register;
+        }
+
+        #endregion
+
+        #region Error Messages
+
+        public const string CPF_INVALID_MESSAGE = "CPF inválido";
+        public const string CPF_ALREADY_EXISTS_MESSAGE = "CPF já cadastrado";
+        public const string PERSON_NOT_FOUND_MESSAGE = "Pessoa não encontrada";
+        public const string USERNAME_REQUIRED_MESSAGE = "Username é obrigatório";
+        public const string INVALID_CREDENTIALS_MESSAGE = "Credenciais inválidas";
+        public const string ADDRESS_REQUIRED_V2_MESSAGE = "Endereço é obrigatório na versão 2.0";
+        public const string DATABASE_CONNECTION_ERROR = "Database connection failed";
+        public const string INTERNAL_SERVER_ERROR = "Erro interno do servidor";
+
+        #endregion
+    }
+}

@@ -1,0 +1,69 @@
+using Microsoft.EntityFrameworkCore;
+using PeopleHub.Domain.Entities;
+using PeopleHub.Domain.Interfaces;
+using PeopleHub.Infrastructure.Data;
+
+namespace PeopleHub.Infrastructure.Repositories
+{
+    public class PersonRepository : IPersonRepository
+    {
+        private readonly ApplicationDbContext _context;
+
+        public PersonRepository(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<Person?> GetByIdAsync(int id)
+        {
+            return await _context.People.FindAsync(id);
+        }
+
+        public async Task<Person?> GetByCPFAsync(string cpf)
+        {
+            return await _context.People.FirstOrDefaultAsync(p => p.CPF == cpf);
+        }
+
+        public async Task<IEnumerable<Person>> GetAllAsync()
+        {
+            return await _context.People.ToListAsync();
+        }
+
+        public async Task<Person> AddAsync(Person person)
+        {
+            _context.People.Add(person);
+            await _context.SaveChangesAsync();
+            return person;
+        }
+
+        public async Task<Person> UpdateAsync(Person person)
+        {
+            _context.People.Update(person);
+            await _context.SaveChangesAsync();
+            return person;
+        }
+
+        public async Task<bool> DeleteAsync(int id)
+        {
+            Person? person = await _context.People.FindAsync(id);
+            if (person == null)
+                return false;
+
+            _context.People.Remove(person);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> ExistsByCPFAsync(string cpf, int? excludeId = null)
+        {
+            IQueryable<Person> query = _context.People.Where(p => p.CPF == cpf);
+            
+            if (excludeId.HasValue)
+            {
+                query = query.Where(p => p.Id != excludeId.Value);
+            }
+
+            return await query.AnyAsync();
+        }
+    }
+}

@@ -1,0 +1,18 @@
+﻿-- Script para criar usuários de teste
+-- Senha para todos os usuários: "123456"
+-- Hash BCrypt gerado para a senha "123456": $2a$11$N3dJ0g7JK6rP8T4mZ5o9LeO6JU2nY3vHuE7xQ2qS1vL8K9mP4cR6O
+
+INSERT INTO Users (Username, Email, PasswordHash, IsActive, CreatedAt, UpdatedAt)
+VALUES 
+    ('admin', 'admin@peoplehub.com', '$2a$11$N3dJ0g7JK6rP8T4mZ5o9LeO6JU2nY3vHuE7xQ2qS1vL8K9mP4cR6O', 1, GETUTCDATE(), NULL),
+    ('user1', 'user1@peoplehub.com', '$2a$11$N3dJ0g7JK6rP8T4mZ5o9LeO6JU2nY3vHuE7xQ2qS1vL8K9mP4cR6O', 1, GETUTCDATE(), NULL),
+    ('testuser', 'test@peoplehub.com', '$2a$11$N3dJ0g7JK6rP8T4mZ5o9LeO6JU2nY3vHuE7xQ2qS1vL8K9mP4cR6O', 1, GETUTCDATE(), NULL);
+
+-- Inserir algumas pessoas de exemplo
+INSERT INTO People (Nome, Sexo, Email, DataNascimento, Naturalidade, Nacionalidade, CPF, Endereco, CreatedAt, UpdatedAt)
+VALUES 
+    ('João Silva', 'M', 'joao.silva@email.com', '1990-05-15', 'São Paulo', 'Brasileira', '12345678901', 'Rua das Flores, 123, São Paulo, SP', GETUTCDATE(), NULL),
+    ('Maria Santos', 'F', 'maria.santos@email.com', '1985-03-22', 'Rio de Janeiro', 'Brasileira', '98765432109', 'Avenida Copacabana, 456, Rio de Janeiro, RJ', GETUTCDATE(), NULL),
+    ('Pedro Oliveira', 'M', 'pedro.oliveira@email.com', '1992-11-08', 'Belo Horizonte', 'Brasileira', '45678912345', 'Rua da Paz, 789, Belo Horizonte, MG', GETUTCDATE(), NULL);
+
+SELECT 'Dados de teste inseridos com sucesso!' AS Resultado;

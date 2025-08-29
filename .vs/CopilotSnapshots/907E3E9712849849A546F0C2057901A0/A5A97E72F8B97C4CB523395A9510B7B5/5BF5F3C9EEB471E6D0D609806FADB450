@@ -1,0 +1,37 @@
+﻿using PeopleHub.Domain.Common;
+
+namespace PeopleHub.Domain.Entities
+{
+    public class Person : BaseEntity
+    {
+        public string Name { get; set; } = string.Empty;
+        public string? Gender { get; set; }
+        public string? Email { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string? PlaceOfBirth { get; set; }
+        public string? Nationality { get; set; }
+        public string CPF { get; set; } = string.Empty;
+        public string? Address { get; set; } // Para versão 2 da API
+    }
+}
+
+namespace PeopleHub.Domain.Entities
+{
+    public class User : BaseEntity
+    {
+        public string Username { get; set; } = string.Empty;
+        public string PasswordHash { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public bool IsActive { get; set; } = true;
+    }
+}
+
+namespace PeopleHub.Domain.Common
+{
+    public abstract class BaseEntity
+    {
+        public int Id { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+    }
+}

@@ -1,0 +1,43 @@
+﻿using MediatR;
+using PeopleHub.Application.DTOs;
+using PeopleHub.Application.Features.Auth.Commands;
+using PeopleHub.Domain.Interfaces;
+
+namespace PeopleHub.Application.Features.Auth.Handlers
+{
+    public class LoginHandler : IRequestHandler<LoginCommand, LoginResponseDto>
+    {
+        private readonly IUserRepository _userRepository;
+        private readonly IJwtService _jwtService;
+
+        public LoginHandler(IUserRepository userRepository, IJwtService jwtService)
+        {
+            _userRepository = userRepository;
+            _jwtService = jwtService;
+        }
+
+        public async Task<LoginResponseDto> Handle(LoginCommand request, CancellationToken cancellationToken)
+        {
+            var user = await _userRepository.GetByUsernameAsync(request.Username);
+            if (user == null)
+            {
+                throw new UnauthorizedAccessException("Usuário ou senha inválidos");
+            }
+
+            if (!await _userRepository.ValidateUserAsync(request.Username, request.Password))
+            {
+                throw new UnauthorizedAccessException("Usuário ou senha inválidos");
+            }
+
+            var token = _jwtService.GenerateToken(user);
+            var expiresAt = DateTime.UtcNow.AddHours(1);
+
+            return new LoginResponseDto
+            {
+                Token = token,
+                Username = user.Username,
+                ExpiresAt = expiresAt
+            };
+        }
+    }
+}

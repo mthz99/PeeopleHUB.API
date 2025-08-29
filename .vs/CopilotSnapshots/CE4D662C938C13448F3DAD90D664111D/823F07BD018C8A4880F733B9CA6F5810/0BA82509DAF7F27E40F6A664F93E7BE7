@@ -1,0 +1,10 @@
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace PeopleHub.API.Controllers.version1
+{
+    [ApiController]
+    [Route("[controller]")]
+    public class PeopleHubController : ControllerBase
+    {
+    }
+}

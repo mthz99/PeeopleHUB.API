@@ -1,0 +1,18 @@
+using MediatR;
+using PeopleHub.Application.DTOs;
+
+namespace PeopleHub.Application.Features.People.Commands
+{
+    public class UpdatePersonCommand : IRequest<PersonDtoV1>
+    {
+        public int Id { get; set; }
+        public string Nome { get; set; } = string.Empty;
+        public string? Sexo { get; set; }
+        public string? Email { get; set; }
+        public DateTime DataNascimento { get; set; }
+        public string? Naturalidade { get; set; }
+        public string? Nacionalidade { get; set; }
+        public string CPF { get; set; } = string.Empty;
+        public string? Endereco { get; set; } // Para V2
+    }
+}

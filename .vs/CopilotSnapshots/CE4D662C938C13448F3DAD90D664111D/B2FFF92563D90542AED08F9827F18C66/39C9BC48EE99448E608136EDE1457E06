@@ -1,0 +1,180 @@
+﻿-- =============================================
+-- Script para criação das tabelas do PeopleHub
+-- Banco: SQL Server
+-- =============================================
+
+-- Verificar se o banco existe, caso não, criar
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'PeopleManager')
+BEGIN
+    CREATE DATABASE PeopleManager
+END
+GO
+
+USE PeopleManager
+GO
+
+-- =============================================
+-- Tabela: Users (Usuários para autenticação)
+-- =============================================
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='Users' AND xtype='U')
+BEGIN
+    CREATE TABLE [dbo].[Users] (
+        [Id] INT IDENTITY(1,1) NOT NULL,
+        [Username] NVARCHAR(100) NOT NULL,
+        [Email] NVARCHAR(200) NOT NULL,
+        [PasswordHash] NVARCHAR(MAX) NOT NULL,
+        [IsActive] BIT NOT NULL DEFAULT 1,
+        [CreatedAt] DATETIME2(7) NOT NULL DEFAULT GETUTCDATE(),
+        [UpdatedAt] DATETIME2(7) NULL,
+        
+        CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED ([Id] ASC),
+        CONSTRAINT [IX_Users_Username] UNIQUE NONCLUSTERED ([Username] ASC),
+        CONSTRAINT [IX_Users_Email] UNIQUE NONCLUSTERED ([Email] ASC)
+    )
+    
+    PRINT 'Tabela Users criada com sucesso!'
+END
+ELSE
+BEGIN
+    PRINT 'Tabela Users já existe!'
+END
+GO
+
+-- =============================================
+-- Tabela: People (Pessoas cadastradas)
+-- =============================================
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='People' AND xtype='U')
+BEGIN
+    CREATE TABLE [dbo].[People] (
+        [Id] INT IDENTITY(1,1) NOT NULL,
+        [Nome] NVARCHAR(200) NOT NULL,
+        [Sexo] NVARCHAR(1) NULL,
+        [Email] NVARCHAR(200) NULL,
+        [DataNascimento] DATETIME2(7) NOT NULL,
+        [Naturalidade] NVARCHAR(100) NULL,
+        [Nacionalidade] NVARCHAR(100) NULL,
+        [CPF] NVARCHAR(14) NOT NULL,
+        [Endereco] NVARCHAR(500) NULL,
+        [CreatedAt] DATETIME2(7) NOT NULL DEFAULT GETUTCDATE(),
+        [UpdatedAt] DATETIME2(7) NULL,
+        
+        CONSTRAINT [PK_People] PRIMARY KEY CLUSTERED ([Id] ASC),
+        CONSTRAINT [IX_People_CPF] UNIQUE NONCLUSTERED ([CPF] ASC)
+    )
+    
+    -- Índices adicionais para performance
+    CREATE NONCLUSTERED INDEX [IX_People_Nome] ON [dbo].[People] ([Nome] ASC)
+    CREATE NONCLUSTERED INDEX [IX_People_Email] ON [dbo].[People] ([Email] ASC) WHERE [Email] IS NOT NULL
+    CREATE NONCLUSTERED INDEX [IX_People_DataNascimento] ON [dbo].[People] ([DataNascimento] ASC)
+    
+    PRINT 'Tabela People criada com sucesso!'
+END
+ELSE
+BEGIN
+    PRINT 'Tabela People já existe!'
+END
+GO
+
+-- =============================================
+-- Verificar se as tabelas foram criadas
+-- =============================================
+SELECT 
+    TABLE_NAME as 'Tabela',
+    COLUMN_NAME as 'Coluna',
+    DATA_TYPE as 'Tipo',
+    CHARACTER_MAXIMUM_LENGTH as 'Tamanho',
+    IS_NULLABLE as 'Nulo'
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME IN ('Users', 'People')
+ORDER BY TABLE_NAME, ORDINAL_POSITION
+GO
+
+-- =============================================
+-- Inserir usuários de teste
+-- =============================================
+-- Senha para todos os usuários: "123456"
+-- Hash BCrypt: $2a$11$N3dJ0g7JK6rP8T4mZ5o9LeO6JU2nY3vHuE7xQ2qS1vL8K9mP4cR6O
+
+IF NOT EXISTS (SELECT 1 FROM Users WHERE Username = 'admin')
+BEGIN
+    INSERT INTO [dbo].[Users] ([Username], [Email], [PasswordHash], [IsActive], [CreatedAt])
+    VALUES 
+        ('admin', 'admin@peoplehub.com', '$2a$11$N3dJ0g7JK6rP8T4mZ5o9LeO6JU2nY3vHuE7xQ2qS1vL8K9mP4cR6O', 1, GETUTCDATE()),
+        ('user1', 'user1@peoplehub.com', '$2a$11$N3dJ0g7JK6rP8T4mZ5o9LeO6JU2nY3vHuE7xQ2qS1vL8K9mP4cR6O', 1, GETUTCDATE()),
+        ('testuser', 'test@peoplehub.com', '$2a$11$N3dJ0g7JK6rP8T4mZ5o9LeO6JU2nY3vHuE7xQ2qS1vL8K9mP4cR6O', 1, GETUTCDATE())
+    
+    PRINT 'Usuários de teste inseridos com sucesso!'
+    PRINT 'Credenciais de login:'
+    PRINT '- admin / admin@peoplehub.com / senha: 123456'
+    PRINT '- user1 / user1@peoplehub.com / senha: 123456'
+    PRINT '- testuser / test@peoplehub.com / senha: 123456'
+END
+ELSE
+BEGIN
+    PRINT 'Usuários de teste já existem!'
+END
+GO
+
+-- =============================================
+-- Inserir pessoas de exemplo (opcional)
+-- =============================================
+IF NOT EXISTS (SELECT 1 FROM People WHERE CPF = '12345678901')
+BEGIN
+    INSERT INTO [dbo].[People] ([Nome], [Sexo], [Email], [DataNascimento], [Naturalidade], [Nacionalidade], [CPF], [Endereco], [CreatedAt])
+    VALUES 
+        ('João Silva', 'M', 'joao.silva@email.com', '1990-05-15', 'São Paulo', 'Brasileira', '12345678901', 'Rua das Flores, 123, São Paulo, SP', GETUTCDATE()),
+        ('Maria Santos', 'F', 'maria.santos@email.com', '1985-03-22', 'Rio de Janeiro', 'Brasileira', '98765432109', 'Avenida Copacabana, 456, Rio de Janeiro, RJ', GETUTCDATE()),
+        ('Pedro Oliveira', 'M', 'pedro.oliveira@email.com', '1992-11-08', 'Belo Horizonte', 'Brasileira', '45678912345', 'Rua da Paz, 789, Belo Horizonte, MG', GETUTCDATE()),
+        ('Ana Costa', 'F', 'ana.costa@email.com', '1988-09-12', 'Salvador', 'Brasileira', '78912345678', 'Rua do Sol, 321, Salvador, BA', GETUTCDATE()),
+        ('Carlos Ferreira', 'M', 'carlos.ferreira@email.com', '1995-02-28', 'Porto Alegre', 'Brasileira', '32165498712', 'Avenida Brasil, 654, Porto Alegre, RS', GETUTCDATE())
+    
+    PRINT 'Pessoas de exemplo inseridas com sucesso!'
+END
+ELSE
+BEGIN
+    PRINT 'Pessoas de exemplo já existem!'
+END
+GO
+
+-- =============================================
+-- Verificar dados inseridos
+-- =============================================
+PRINT '===================='
+PRINT 'RESUMO DAS TABELAS:'
+PRINT '===================='
+
+SELECT 
+    'Users' as Tabela,
+    COUNT(*) as 'Total de Registros'
+FROM Users
+
+UNION ALL
+
+SELECT 
+    'People' as Tabela,
+    COUNT(*) as 'Total de Registros'
+FROM People
+GO
+
+-- =============================================
+-- Consultas de verificação
+-- =============================================
+PRINT ''
+PRINT 'USUÁRIOS CADASTRADOS:'
+SELECT Id, Username, Email, IsActive, CreatedAt FROM Users
+GO
+
+PRINT ''
+PRINT 'PESSOAS CADASTRADAS:'
+SELECT Id, Nome, Sexo, Email, CPF, DataNascimento, CreatedAt FROM People
+GO
+
+PRINT ''
+PRINT '✅ Script executado com sucesso!'
+PRINT 'Banco de dados PeopleManager configurado e pronto para uso!'
+PRINT ''
+PRINT 'Para testar a API:'
+PRINT '1. Execute: dotnet run --project PeopleHub.API'
+PRINT '2. Acesse: https://localhost:7xxx/swagger'
+PRINT '3. Faça login com: admin / 123456'
+GO

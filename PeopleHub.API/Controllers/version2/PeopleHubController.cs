@@ -1,0 +1,129 @@
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using PeopleHub.Application.DTOs;
+using PeopleHub.Application.Features.People.Commands;
+using PeopleHub.Application.Features.People.Queries;
+using PeopleHub.API.Mappers;
+
+namespace PeopleHub.API.Controllers.version2
+{
+    [ApiController]
+    [ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    [Authorize]
+    public class PeopleHubController : ControllerBase
+    {
+        private readonly IMediator _mediator;
+
+        public PeopleHubController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+        /// <summary>
+        /// Obtém todas as pessoas
+        /// </summary>
+        /// <returns>Lista de pessoas</returns>
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<PersonDtoV2>>> GetAll()
+        {
+            return await ExecuteWithErrorHandling(async () =>
+            {
+                IEnumerable<PersonDtoV1> result = await _mediator.Send(new GetAllPeopleQuery());
+                IEnumerable<PersonDtoV2> mappedResult = result.Select(p => p.ToPersonDtoV2());
+                return Ok(mappedResult);
+            });
+        }
+
+        /// <summary>
+        /// Obtém uma pessoa por ID
+        /// </summary>
+        /// <param name="id">ID da pessoa</param>
+        /// <returns>Dados da pessoa</returns>
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PersonDtoV2>> GetById(int id)
+        {
+            return await ExecuteWithErrorHandling(async () =>
+            {
+                PersonDtoV1? result = await _mediator.Send(new GetPersonByIdQuery(id));
+                if (result == null)
+                    return NotFound(new { message = "Pessoa não encontrada" });
+
+                PersonDtoV2 mappedResult = result.ToPersonDtoV2();
+                return Ok(mappedResult);
+            });
+        }
+
+        /// <summary>
+        /// Cria uma nova pessoa (CRUD Administrativo V2 - SEM criar usuário, COM endereço obrigatório)
+        /// Para criar conta de usuário com acesso ao sistema, use POST /api/Auth/register
+        /// </summary>
+        /// <param name="personDto">Dados da pessoa</param>
+        /// <returns>Pessoa criada</returns>
+        [HttpPost]
+        public async Task<ActionResult<PersonDtoV2>> Create([FromBody] PersonDtoV2 personDto)
+        {
+            return await ExecuteWithErrorHandling(async () =>
+            {
+                CreatePersonCommand command = personDto.ToCreateCommand();
+                PersonDtoV1 result = await _mediator.Send(command);
+                PersonDtoV2 mappedResult = result.ToPersonDtoV2(personDto.Endereco);
+                return CreatedAtAction(nameof(GetById), new { id = result.Id }, mappedResult);
+            });
+        }
+
+        /// <summary>
+        /// Atualiza uma pessoa existente (V2 - endereço obrigatório)
+        /// </summary>
+        /// <param name="id">ID da pessoa</param>
+        /// <param name="personDto">Dados atualizados da pessoa</param>
+        /// <returns>Pessoa atualizada</returns>
+        [HttpPut("{id}")]
+        public async Task<ActionResult<PersonDtoV2>> Update(int id, [FromBody] PersonDtoV2 personDto)
+        {
+            return await ExecuteWithErrorHandling(async () =>
+            {
+                UpdatePersonCommand command = personDto.ToUpdateCommand(id);
+                PersonDtoV1 result = await _mediator.Send(command);
+                PersonDtoV2 mappedResult = result.ToPersonDtoV2(personDto.Endereco);
+                return Ok(mappedResult);
+            });
+        }
+
+        /// <summary>
+        /// Remove uma pessoa
+        /// </summary>
+        /// <param name="id">ID da pessoa</param>
+        /// <returns>Resultado da operação</returns>
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            return await ExecuteWithErrorHandling(async () =>
+            {
+                bool result = await _mediator.Send(new DeletePersonCommand(id));
+                return result ? NoContent() : NotFound(new { message = "Pessoa não encontrada" });
+            });
+        }
+
+        #region Private Helper Methods
+
+        private async Task<ActionResult> ExecuteWithErrorHandling(Func<Task<ActionResult>> action)
+        {
+            try
+            {
+                return await action();
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Erro interno do servidor", details = ex.Message });
+            }
+        }
+
+        #endregion
+    }
+}

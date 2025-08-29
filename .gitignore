@@ -1,0 +1,55 @@
+# .NET build folders
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# Logs
+*.log
+
+# OS generated files
+Thumbs.db
+.DS_Store
+
+# NuGet packages
+*.nupkg
+# Package directories
+packages/
+
+# Publish profiles
+*.pubxml
+*.publishproj
+
+# Test results
+TestResults/
+
+# Others
+*.vspscc
+*.vssscc
+_ReSharper*/
+*.resharper
+*.DotSettings
+.idea/
+
+# Web output
+wwwroot/dist/
+wwwroot/node_modules/
+
+# Backup files
+*.bak
+*.tmp
+~$*
+
+# Rider
+.idea/
+*.sln.iml
+
+# Entity Framework
+Migrations/

@@ -1,0 +1,47 @@
+﻿-- =============================================
+-- PeopleHub - CREATE TABLES (Versão Simples)
+-- =============================================
+
+-- Tabela Users
+CREATE TABLE [Users] (
+    [Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+    [Username] NVARCHAR(100) NOT NULL UNIQUE,
+    [Email] NVARCHAR(200) NOT NULL UNIQUE,
+    [PasswordHash] NVARCHAR(MAX) NOT NULL,
+    [IsActive] BIT NOT NULL DEFAULT 1,
+    [CreatedAt] DATETIME2(7) NOT NULL DEFAULT GETUTCDATE(),
+    [UpdatedAt] DATETIME2(7) NULL
+);
+
+-- Tabela People
+CREATE TABLE [People] (
+    [Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+    [Nome] NVARCHAR(200) NOT NULL,
+    [Sexo] NVARCHAR(1) NULL,
+    [Email] NVARCHAR(200) NULL,
+    [DataNascimento] DATETIME2(7) NOT NULL,
+    [Naturalidade] NVARCHAR(100) NULL,
+    [Nacionalidade] NVARCHAR(100) NULL,
+    [CPF] NVARCHAR(14) NOT NULL UNIQUE,
+    [Endereco] NVARCHAR(500) NULL,
+    [CreatedAt] DATETIME2(7) NOT NULL DEFAULT GETUTCDATE(),
+    [UpdatedAt] DATETIME2(7) NULL
+);
+
+-- Índices para performance
+CREATE INDEX IX_People_Nome ON People(Nome);
+CREATE INDEX IX_People_DataNascimento ON People(DataNascimento);
+
+-- Usuários de teste (senha para todos: "123456")
+INSERT INTO [Users] ([Username], [Email], [PasswordHash], [IsActive], [CreatedAt])
+VALUES 
+    ('admin', 'admin@peoplehub.com', '$2a$11$N3dJ0g7JK6rP8T4mZ5o9LeO6JU2nY3vHuE7xQ2qS1vL8K9mP4cR6O', 1, GETUTCDATE()),
+    ('user1', 'user1@peoplehub.com', '$2a$11$N3dJ0g7JK6rP8T4mZ5o9LeO6JU2nY3vHuE7xQ2qS1vL8K9mP4cR6O', 1, GETUTCDATE()),
+    ('testuser', 'test@peoplehub.com', '$2a$11$N3dJ0g7JK6rP8T4mZ5o9LeO6JU2nY3vHuE7xQ2qS1vL8K9mP4cR6O', 1, GETUTCDATE());
+
+-- Pessoas de exemplo
+INSERT INTO [People] ([Nome], [Sexo], [Email], [DataNascimento], [Naturalidade], [Nacionalidade], [CPF], [Endereco], [CreatedAt])
+VALUES 
+    ('João Silva', 'M', 'joao.silva@email.com', '1990-05-15', 'São Paulo', 'Brasileira', '12345678901', 'Rua das Flores, 123, São Paulo, SP', GETUTCDATE()),
+    ('Maria Santos', 'F', 'maria.santos@email.com', '1985-03-22', 'Rio de Janeiro', 'Brasileira', '98765432109', 'Avenida Copacabana, 456, Rio de Janeiro, RJ', GETUTCDATE()),
+    ('Pedro Oliveira', 'M', 'pedro.oliveira@email.com', '1992-11-08', 'Belo Horizonte', 'Brasileira', '45678912345', 'Rua da Paz, 789, Belo Horizonte, MG', GETUTCDATE());

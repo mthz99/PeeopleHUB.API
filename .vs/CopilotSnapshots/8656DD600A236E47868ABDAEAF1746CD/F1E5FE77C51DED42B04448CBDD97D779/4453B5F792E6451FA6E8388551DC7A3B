@@ -1,0 +1,237 @@
+﻿# PeopleHub.Test
+
+Projeto de testes unitários para a aplicação PeopleHub API, seguindo as melhores práticas de testing em .NET 8.
+
+## 🧪 Estrutura dos Testes
+
+### Organização dos Arquivos
+
+```
+PeopleHub.Test/
+├── Controllers/
+│   ├── AuthControllerTests.cs                    # Testes do AuthController
+│   ├── Version1/
+│   │   └── PeopleHubControllerV1Tests.cs         # Testes do PeopleHubController v1.0
+│   └── Version2/
+│       └── PeopleHubControllerV2Tests.cs         # Testes do PeopleHubController v2.0
+├── Helpers/
+│   └── TestDataHelper.cs                         # Helper com dados de teste
+└── README.md                                     # Este arquivo
+```
+
+## 🎯 Cobertura de Testes
+
+### AuthController
+- ✅ **Login Tests**
+  - Login com credenciais válidas
+  - Login com credenciais inválidas
+  - Login com dados em branco
+  - Tratamento de exceções
+
+- ✅ **Register Tests**
+  - Registro com dados válidos
+  - Registro com CPF inválido
+  - Registro com CPF duplicado
+  - Tratamento de exceções
+
+### PeopleHubController V1.0
+- ✅ **GetAll Tests**
+  - Retorno de lista de pessoas
+  - Tratamento de exceções
+
+- ✅ **GetById Tests**
+  - Busca por ID existente
+  - Busca por ID inexistente
+  - Tratamento de exceções
+
+- ✅ **Create Tests**
+  - Criação com dados válidos
+  - Criação com CPF inválido
+  - Tratamento de exceções
+
+- ✅ **Update Tests**
+  - Atualização com dados válidos
+  - Atualização com dados inválidos
+  - Tratamento de exceções
+
+- ✅ **Delete Tests**
+  - Exclusão com ID existente
+  - Exclusão com ID inexistente
+  - Tratamento de exceções
+
+### PeopleHubController V2.0
+- ✅ **GetAll Tests**
+  - Retorno de lista de pessoas com mapeamento V2
+  - Tratamento de exceções
+
+- ✅ **GetById Tests**
+  - Busca por ID com mapeamento V2
+  - Busca por ID inexistente
+  - Tratamento de exceções
+
+- ✅ **Create Tests**
+  - Criação com dados válidos (incluindo endereço)
+  - Criação sem endereço (obrigatório na V2)
+  - Criação com CPF inválido
+  - Tratamento de exceções
+
+- ✅ **Update Tests**
+  - Atualização com dados válidos V2
+  - Atualização sem endereço
+  - Atualização com dados inválidos
+  - Tratamento de exceções
+
+- ✅ **Delete Tests**
+  - Exclusão com ID existente
+  - Exclusão com ID inexistente
+  - Tratamento de exceções
+
+## 🛠️ Tecnologias de Teste
+
+- **xUnit**: Framework de testes principal
+- **Moq**: Library para mocking de dependências
+- **Microsoft.AspNetCore.Mvc.Testing**: Para testes de controllers
+- **.NET 8**: Plataforma de desenvolvimento
+
+## 📋 Padrões de Teste Utilizados
+
+### AAA Pattern (Arrange, Act, Assert)
+```csharp
+[Fact]
+public async Task Login_WithValidCredentials_ReturnsOkWithToken()
+{
+    // Arrange
+    var loginDto = TestDataHelper.CreateValidLoginDto();
+    var expectedResponse = TestDataHelper.CreateValidLoginResponse();
+    
+    // Act
+    var result = await _controller.Login(loginDto);
+    
+    // Assert
+    var okResult = Assert.IsType<OkObjectResult>(result.Result);
+    // ...
+}
+```
+
+### Mocking com Moq
+```csharp
+_mediatorMock
+    .Setup(m => m.Send(It.IsAny<LoginCommand>(), It.IsAny<CancellationToken>()))
+    .ReturnsAsync(expectedResponse);
+```
+
+### Data Helpers
+- Centralização de dados de teste no `TestDataHelper`
+- Reutilização de objetos de teste
+- Constantes para mensagens de erro
+
+## 🏃‍♂️ Como Executar os Testes
+
+### Via Visual Studio
+1. Abrir o **Test Explorer** (Teste > Windows > Gerenciador de Testes)
+2. Clicar em **Executar Todos os Testes**
+
+### Via Terminal/CLI
+```bash
+# Executar todos os testes
+dotnet test
+
+# Executar testes de um projeto específico
+dotnet test PeopleHub.Test
+
+# Executar com cobertura de código
+dotnet test --collect:"XPlat Code Coverage"
+
+# Executar testes em modo verbose
+dotnet test --verbosity normal
+```
+
+### Via Package Manager Console
+```powershell
+# Executar todos os testes
+Test-Project PeopleHub.Test
+```
+
+## 📊 Cenários de Teste
+
+### Casos de Sucesso (Happy Path)
+- Operações CRUD funcionando corretamente
+- Autenticação e registro bem-sucedidos
+- Retorno de dados válidos
+
+### Casos de Erro (Error Path)
+- Validação de dados inválidos
+- Tratamento de exceções
+- Cenários de "não encontrado"
+- Erros de servidor
+
+### Casos Limite (Edge Cases)
+- CPF inválidos e duplicados
+- Endereços obrigatórios na V2
+- Credenciais incorretas
+- IDs inexistentes
+
+## 🎯 Benefícios dos Testes
+
+### Para Desenvolvedores
+- **Confiança**: Alterações no código não quebram funcionalidades
+- **Documentação**: Testes servem como documentação viva
+- **Refatoração Segura**: Permite melhorias no código com segurança
+
+### Para o Projeto
+- **Qualidade**: Redução de bugs em produção
+- **Manutenibilidade**: Código mais fácil de manter
+- **Regressão**: Detecta problemas introduzidos por mudanças
+
+### Para a Equipe
+- **Padronização**: Garante que todos sigam as mesmas regras
+- **Colaboração**: Facilita trabalho em equipe
+- **Entrega Contínua**: Permite deploys mais frequentes e seguros
+
+## 📝 Convenções de Nomenclatura
+
+### Nomenclatura de Testes
+```
+[MetodoTestado]_[Cenario]_[ResultadoEsperado]
+
+Exemplos:
+- Login_WithValidCredentials_ReturnsOkWithToken
+- GetById_WithNonExistingId_ReturnsNotFound
+- Create_WithInvalidCPF_ReturnsBadRequest
+```
+
+### Organização em Regiões
+```csharp
+#region Login Tests
+// Testes relacionados ao login
+#endregion
+
+#region Register Tests
+// Testes relacionados ao registro
+#endregion
+```
+
+## 🔍 Métricas de Qualidade
+
+### Cobertura de Código
+- **Meta**: > 80% de cobertura nos controllers
+- **Ferramenta**: Coverage integrado ao .NET
+
+### Tipos de Teste
+- **Unit Tests**: Testam componentes isolados
+- **Integration Tests**: Podem ser adicionados futuramente
+- **End-to-End Tests**: Podem ser implementados com TestServer
+
+## 🚀 Próximos Passos
+
+1. **Testes de Integração**: Implementar testes que validem a integração entre camadas
+2. **Testes de Performance**: Validar performance dos endpoints
+3. **Testes de Carga**: Simular cenários de alto volume
+4. **Automação**: Integrar testes no pipeline CI/CD
+
+## 📚 Referências
+
+- [xUnit Documentation](https://xunit.net/)
+- [Moq Documentation](https://github.com/moq/moq4)
+- [ASP.NET Core Testing](https://docs.microsoft.com/en-us/aspnet/core/test/)
+- [.NET Testing Best Practices](https://docs.microsoft.com/en-us/dotnet/core/testing/)

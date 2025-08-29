@@ -1,0 +1,80 @@
+﻿using PeopleHub.Application.DTOs;
+using PeopleHub.Application.Features.People.Commands;
+using PeopleHub.Application.Features.Auth.Commands;
+
+namespace PeopleHub.API.Mappers
+{
+    public static class PersonMapper
+    {
+        #region Person V1 Mappings
+
+        public static CreatePersonCommand ToCreateCommand(this PersonDtoV1 dto) => new()
+        {
+            Nome = dto.Nome,
+            Sexo = dto.Sexo,
+            Email = dto.Email,
+            DataNascimento = dto.DataNascimento,
+            Naturalidade = dto.Naturalidade,
+            Nacionalidade = dto.Nacionalidade,
+            CPF = dto.CPF
+        };
+
+        public static UpdatePersonCommand ToUpdateCommand(this PersonDtoV1 dto, int id) => new()
+        {
+            Id = id,
+            Nome = dto.Nome,
+            Sexo = dto.Sexo,
+            Email = dto.Email,
+            DataNascimento = dto.DataNascimento,
+            Naturalidade = dto.Naturalidade,
+            Nacionalidade = dto.Nacionalidade,
+            CPF = dto.CPF
+        };
+
+        #endregion
+
+        #region Person V2 Mappings
+
+        public static CreatePersonCommand ToCreateCommand(this PersonDtoV2 dto) => new()
+        {
+            Nome = dto.Nome,
+            Sexo = dto.Sexo,
+            Email = dto.Email,
+            DataNascimento = dto.DataNascimento,
+            Naturalidade = dto.Naturalidade,
+            Nacionalidade = dto.Nacionalidade,
+            CPF = dto.CPF,
+            Endereco = dto.Endereco
+        };
+
+        public static UpdatePersonCommand ToUpdateCommand(this PersonDtoV2 dto, int id) => new()
+        {
+            Id = id,
+            Nome = dto.Nome,
+            Sexo = dto.Sexo,
+            Email = dto.Email,
+            DataNascimento = dto.DataNascimento,
+            Naturalidade = dto.Naturalidade,
+            Nacionalidade = dto.Nacionalidade,
+            CPF = dto.CPF,
+            Endereco = dto.Endereco
+        };
+
+        public static PersonDtoV2 ToPersonDtoV2(this PersonDtoV1 source, string? endereco = null) => new()
+        {
+            Id = source.Id,
+            Nome = source.Nome,
+            Sexo = source.Sexo,
+            Email = source.Email,
+            DataNascimento = source.DataNascimento,
+            Naturalidade = source.Naturalidade,
+            Nacionalidade = source.Nacionalidade,
+            CPF = source.CPF,
+            CreatedAt = source.CreatedAt,
+            UpdatedAt = source.UpdatedAt,
+            Endereco = endereco ?? string.Empty
+        };
+
+        #endregion
+    }
+}

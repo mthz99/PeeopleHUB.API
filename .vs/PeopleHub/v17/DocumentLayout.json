@@ -1,0 +1,819 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\theuzsource\\repos\\PeopleHub.API\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|solutionrelative:peoplehub.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.api\\controllers\\version1\\peoplehubcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|solutionrelative:peoplehub.api\\controllers\\version1\\peoplehubcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.api\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|solutionrelative:peoplehub.api\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D82EC8C-8BC4-4D5C-AEBD-DDE93DDBC35D}|PeopleHub.Test\\PeopleHub.Test.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.test\\helpers\\testdatafactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D82EC8C-8BC4-4D5C-AEBD-DDE93DDBC35D}|PeopleHub.Test\\PeopleHub.Test.csproj|solutionrelative:peoplehub.test\\helpers\\testdatafactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D82EC8C-8BC4-4D5C-AEBD-DDE93DDBC35D}|PeopleHub.Test\\PeopleHub.Test.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.test\\controllers\\authcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D82EC8C-8BC4-4D5C-AEBD-DDE93DDBC35D}|PeopleHub.Test\\PeopleHub.Test.csproj|solutionrelative:peoplehub.test\\controllers\\authcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D82EC8C-8BC4-4D5C-AEBD-DDE93DDBC35D}|PeopleHub.Test\\PeopleHub.Test.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.test\\controllers\\version1\\peoplehubcontrollerv1tests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D82EC8C-8BC4-4D5C-AEBD-DDE93DDBC35D}|PeopleHub.Test\\PeopleHub.Test.csproj|solutionrelative:peoplehub.test\\controllers\\version1\\peoplehubcontrollerv1tests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D82EC8C-8BC4-4D5C-AEBD-DDE93DDBC35D}|PeopleHub.Test\\PeopleHub.Test.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.test\\peoplehub.test.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9D82EC8C-8BC4-4D5C-AEBD-DDE93DDBC35D}|PeopleHub.Test\\PeopleHub.Test.csproj|solutionrelative:peoplehub.test\\peoplehub.test.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|solutionrelative:peoplehub.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.api\\mappers\\personmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|solutionrelative:peoplehub.api\\mappers\\personmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|solutionrelative:peoplehub.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.api\\mappers\\authmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|solutionrelative:peoplehub.api\\mappers\\authmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.api\\controllers\\version2\\peoplehubcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|solutionrelative:peoplehub.api\\controllers\\version2\\peoplehubcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.application\\dtos\\persondtov1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|solutionrelative:peoplehub.application\\dtos\\persondtov1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.application\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|solutionrelative:peoplehub.application\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA4BF84F-EB2E-4F2D-8D05-7903460B1409}|PeopleHub.Domain\\PeopleHub.Domain.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA4BF84F-EB2E-4F2D-8D05-7903460B1409}|PeopleHub.Domain\\PeopleHub.Domain.csproj|solutionrelative:peoplehub.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA4BF84F-EB2E-4F2D-8D05-7903460B1409}|PeopleHub.Domain\\PeopleHub.Domain.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.domain\\entities\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA4BF84F-EB2E-4F2D-8D05-7903460B1409}|PeopleHub.Domain\\PeopleHub.Domain.csproj|solutionrelative:peoplehub.domain\\entities\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.application\\dtos\\persondtov2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|solutionrelative:peoplehub.application\\dtos\\persondtov2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA4BF84F-EB2E-4F2D-8D05-7903460B1409}|PeopleHub.Domain\\PeopleHub.Domain.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.domain\\common\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA4BF84F-EB2E-4F2D-8D05-7903460B1409}|PeopleHub.Domain\\PeopleHub.Domain.csproj|solutionrelative:peoplehub.domain\\common\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.application\\peoplehub.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|solutionrelative:peoplehub.application\\peoplehub.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.application\\features\\people\\handlers\\getpersonbyidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|solutionrelative:peoplehub.application\\features\\people\\handlers\\getpersonbyidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.application\\features\\auth\\handlers\\loginhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|solutionrelative:peoplehub.application\\features\\auth\\handlers\\loginhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2854094D-EB19-42B7-BD62-1056DB1CA33F}|PeopleHub.Infrastructure\\PeopleHub.Infrastructure.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.infrastructure\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2854094D-EB19-42B7-BD62-1056DB1CA33F}|PeopleHub.Infrastructure\\PeopleHub.Infrastructure.csproj|solutionrelative:peoplehub.infrastructure\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA4BF84F-EB2E-4F2D-8D05-7903460B1409}|PeopleHub.Domain\\PeopleHub.Domain.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.domain\\interfaces\\ijwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA4BF84F-EB2E-4F2D-8D05-7903460B1409}|PeopleHub.Domain\\PeopleHub.Domain.csproj|solutionrelative:peoplehub.domain\\interfaces\\ijwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.application\\features\\auth\\commands\\logincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|solutionrelative:peoplehub.application\\features\\auth\\commands\\logincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.application\\features\\people\\handlers\\getallpeoplehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|solutionrelative:peoplehub.application\\features\\people\\handlers\\getallpeoplehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.application\\features\\people\\handlers\\deletepersonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|solutionrelative:peoplehub.application\\features\\people\\handlers\\deletepersonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.application\\features\\people\\handlers\\updatepersonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|solutionrelative:peoplehub.application\\features\\people\\handlers\\updatepersonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2854094D-EB19-42B7-BD62-1056DB1CA33F}|PeopleHub.Infrastructure\\PeopleHub.Infrastructure.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.infrastructure\\repositories\\personrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2854094D-EB19-42B7-BD62-1056DB1CA33F}|PeopleHub.Infrastructure\\PeopleHub.Infrastructure.csproj|solutionrelative:peoplehub.infrastructure\\repositories\\personrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2854094D-EB19-42B7-BD62-1056DB1CA33F}|PeopleHub.Infrastructure\\PeopleHub.Infrastructure.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2854094D-EB19-42B7-BD62-1056DB1CA33F}|PeopleHub.Infrastructure\\PeopleHub.Infrastructure.csproj|solutionrelative:peoplehub.infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA4BF84F-EB2E-4F2D-8D05-7903460B1409}|PeopleHub.Domain\\PeopleHub.Domain.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.domain\\interfaces\\ipersonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA4BF84F-EB2E-4F2D-8D05-7903460B1409}|PeopleHub.Domain\\PeopleHub.Domain.csproj|solutionrelative:peoplehub.domain\\interfaces\\ipersonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA4BF84F-EB2E-4F2D-8D05-7903460B1409}|PeopleHub.Domain\\PeopleHub.Domain.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.domain\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA4BF84F-EB2E-4F2D-8D05-7903460B1409}|PeopleHub.Domain\\PeopleHub.Domain.csproj|solutionrelative:peoplehub.domain\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.application\\features\\people\\commands\\createpersoncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|solutionrelative:peoplehub.application\\features\\people\\commands\\createpersoncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.application\\features\\people\\commands\\updatepersoncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|solutionrelative:peoplehub.application\\features\\people\\commands\\updatepersoncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.application\\features\\people\\commands\\deletepersoncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|solutionrelative:peoplehub.application\\features\\people\\commands\\deletepersoncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.application\\features\\people\\queries\\getpersonbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|solutionrelative:peoplehub.application\\features\\people\\queries\\getpersonbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.application\\features\\people\\queries\\getallpeoplequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|solutionrelative:peoplehub.application\\features\\people\\queries\\getallpeoplequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.application\\features\\people\\handlers\\createpersonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|solutionrelative:peoplehub.application\\features\\people\\handlers\\createpersonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2854094D-EB19-42B7-BD62-1056DB1CA33F}|PeopleHub.Infrastructure\\PeopleHub.Infrastructure.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2854094D-EB19-42B7-BD62-1056DB1CA33F}|PeopleHub.Infrastructure\\PeopleHub.Infrastructure.csproj|solutionrelative:peoplehub.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.application\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|solutionrelative:peoplehub.application\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.application\\features\\auth\\commands\\registercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|solutionrelative:peoplehub.application\\features\\auth\\commands\\registercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.application\\features\\auth\\handlers\\registerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57BFF697-8BC2-44BD-BEF7-0741B3F525FA}|PeopleHub.Application\\PeopleHub.Application.csproj|solutionrelative:peoplehub.application\\features\\auth\\handlers\\registerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA4BF84F-EB2E-4F2D-8D05-7903460B1409}|PeopleHub.Domain\\PeopleHub.Domain.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.domain\\interfaces\\ipasswordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA4BF84F-EB2E-4F2D-8D05-7903460B1409}|PeopleHub.Domain\\PeopleHub.Domain.csproj|solutionrelative:peoplehub.domain\\interfaces\\ipasswordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2854094D-EB19-42B7-BD62-1056DB1CA33F}|PeopleHub.Infrastructure\\PeopleHub.Infrastructure.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.infrastructure\\services\\passwordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2854094D-EB19-42B7-BD62-1056DB1CA33F}|PeopleHub.Infrastructure\\PeopleHub.Infrastructure.csproj|solutionrelative:peoplehub.infrastructure\\services\\passwordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D82EC8C-8BC4-4D5C-AEBD-DDE93DDBC35D}|PeopleHub.Test\\PeopleHub.Test.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.test\\controllers\\version2\\peoplehubcontrollerv2tests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D82EC8C-8BC4-4D5C-AEBD-DDE93DDBC35D}|PeopleHub.Test\\PeopleHub.Test.csproj|solutionrelative:peoplehub.test\\controllers\\version2\\peoplehubcontrollerv2tests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|solutionrelative:peoplehub.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|C:\\Users\\theuzsource\\repos\\peoplehub.api\\peoplehub.api\\cors-config.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|",
+      "RelativeMoniker": "D:0:0:{8A8D5A22-A38B-44AB-8388-54E873FDC24B}|PeopleHub.API\\PeopleHub.API.csproj|solutionrelative:peoplehub.api\\cors-config.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 169,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "README.md",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIUBAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-08-28T22:57:47.578Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{7f40df72-066b-4810-a08b-c0fbed76c948}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PeopleHubControllerV1Tests.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Test\\Controllers\\Version1\\PeopleHubControllerV1Tests.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Test\\Controllers\\Version1\\PeopleHubControllerV1Tests.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Test\\Controllers\\Version1\\PeopleHubControllerV1Tests.cs",
+              "RelativeToolTip": "PeopleHub.Test\\Controllers\\Version1\\PeopleHubControllerV1Tests.cs",
+              "ViewState": "AgIAACYBAAAAAAAAAAAAADkBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T15:45:37.522Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthControllerTests.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Test\\Controllers\\AuthControllerTests.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Test\\Controllers\\AuthControllerTests.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Test\\Controllers\\AuthControllerTests.cs",
+              "RelativeToolTip": "PeopleHub.Test\\Controllers\\AuthControllerTests.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAABcAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T15:43:26.788Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PeopleHubController.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\Controllers\\version1\\PeopleHubController.cs",
+              "RelativeDocumentMoniker": "PeopleHub.API\\Controllers\\version1\\PeopleHubController.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\Controllers\\version1\\PeopleHubController.cs",
+              "RelativeToolTip": "PeopleHub.API\\Controllers\\version1\\PeopleHubController.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAowD8AAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:48:43.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\Program.cs",
+              "RelativeDocumentMoniker": "PeopleHub.API\\Program.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\Program.cs",
+              "RelativeToolTip": "PeopleHub.API\\Program.cs",
+              "ViewState": "AgIAAJYAAAAAAAAAAABRwJkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:48:29.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "README.md",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\README.md",
+              "RelativeDocumentMoniker": "PeopleHub.API\\README.md",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\README.md",
+              "RelativeToolTip": "PeopleHub.API\\README.md",
+              "ViewState": "AgIAADIBAAAAAAAAAAAswEYBAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-08-27T14:15:15.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PeopleHub.Test.csproj",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Test\\PeopleHub.Test.csproj",
+              "RelativeDocumentMoniker": "PeopleHub.Test\\PeopleHub.Test.csproj",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Test\\PeopleHub.Test.csproj",
+              "RelativeToolTip": "PeopleHub.Test\\PeopleHub.Test.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-27T15:09:22.039Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "PeopleHub.API\\Controllers\\AuthController.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "PeopleHub.API\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAewDoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T14:04:18.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "PeopleHub.API\\appsettings.Development.json",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\appsettings.Development.json",
+              "RelativeToolTip": "PeopleHub.API\\appsettings.Development.json",
+              "ViewState": "AgIAAAcAAAAAAAAAAABRwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-28T22:17:33.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "CORS-CONFIG.md",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\CORS-CONFIG.md",
+              "RelativeDocumentMoniker": "PeopleHub.API\\CORS-CONFIG.md",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\CORS-CONFIG.md",
+              "RelativeToolTip": "PeopleHub.API\\CORS-CONFIG.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIkAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-08-28T22:19:02.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "PeopleHubControllerV2Tests.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Test\\Controllers\\Version2\\PeopleHubControllerV2Tests.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Test\\Controllers\\Version2\\PeopleHubControllerV2Tests.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Test\\Controllers\\Version2\\PeopleHubControllerV2Tests.cs",
+              "RelativeToolTip": "PeopleHub.Test\\Controllers\\Version2\\PeopleHubControllerV2Tests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoCAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T15:47:34.346Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TestDataFactory.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Test\\Helpers\\TestDataFactory.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Test\\Helpers\\TestDataFactory.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Test\\Helpers\\TestDataFactory.cs",
+              "RelativeToolTip": "PeopleHub.Test\\Helpers\\TestDataFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8BAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T15:49:17.442Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "appsettings.json",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\appsettings.json",
+              "RelativeDocumentMoniker": "PeopleHub.API\\appsettings.json",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\appsettings.json",
+              "RelativeToolTip": "PeopleHub.API\\appsettings.json",
+              "ViewState": "AgIAAB8AAAAAAAAAAABRwCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-27T13:58:01.308Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PersonMapper.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\Mappers\\PersonMapper.cs",
+              "RelativeDocumentMoniker": "PeopleHub.API\\Mappers\\PersonMapper.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\Mappers\\PersonMapper.cs",
+              "RelativeToolTip": "PeopleHub.API\\Mappers\\PersonMapper.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T14:56:36.145Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AuthMapper.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\Mappers\\AuthMapper.cs",
+              "RelativeDocumentMoniker": "PeopleHub.API\\Mappers\\AuthMapper.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\Mappers\\AuthMapper.cs",
+              "RelativeToolTip": "PeopleHub.API\\Mappers\\AuthMapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T14:56:43.651Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "IJwtService.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Domain\\Interfaces\\IJwtService.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Domain\\Interfaces\\IJwtService.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Domain\\Interfaces\\IJwtService.cs",
+              "RelativeToolTip": "PeopleHub.Domain\\Interfaces\\IJwtService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T14:07:06.745Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "PeopleHubController.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\Controllers\\version2\\PeopleHubController.cs",
+              "RelativeDocumentMoniker": "PeopleHub.API\\Controllers\\version2\\PeopleHubController.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.API\\Controllers\\version2\\PeopleHubController.cs",
+              "RelativeToolTip": "PeopleHub.API\\Controllers\\version2\\PeopleHubController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T14:05:16.311Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "RegisterDto.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\DTOs\\RegisterDto.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Application\\DTOs\\RegisterDto.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\DTOs\\RegisterDto.cs",
+              "RelativeToolTip": "PeopleHub.Application\\DTOs\\RegisterDto.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T14:38:06.313Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "RegisterCommand.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\Auth\\Commands\\RegisterCommand.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Application\\Features\\Auth\\Commands\\RegisterCommand.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\Auth\\Commands\\RegisterCommand.cs",
+              "RelativeToolTip": "PeopleHub.Application\\Features\\Auth\\Commands\\RegisterCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T14:38:25.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "RegisterHandler.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\Auth\\Handlers\\RegisterHandler.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Application\\Features\\Auth\\Handlers\\RegisterHandler.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\Auth\\Handlers\\RegisterHandler.cs",
+              "RelativeToolTip": "PeopleHub.Application\\Features\\Auth\\Handlers\\RegisterHandler.cs",
+              "ViewState": "AgIAAH0AAAAAAAAAAEBVwIEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T14:38:59.959Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "IPasswordService.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Domain\\Interfaces\\IPasswordService.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Domain\\Interfaces\\IPasswordService.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Domain\\Interfaces\\IPasswordService.cs",
+              "RelativeToolTip": "PeopleHub.Domain\\Interfaces\\IPasswordService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T14:40:39.903Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "PasswordService.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Infrastructure\\Services\\PasswordService.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Infrastructure\\Services\\PasswordService.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Infrastructure\\Services\\PasswordService.cs",
+              "RelativeToolTip": "PeopleHub.Infrastructure\\Services\\PasswordService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T14:41:48.741Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "LoginHandler.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\Auth\\Handlers\\LoginHandler.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Application\\Features\\Auth\\Handlers\\LoginHandler.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\Auth\\Handlers\\LoginHandler.cs",
+              "RelativeToolTip": "PeopleHub.Application\\Features\\Auth\\Handlers\\LoginHandler.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAADwvzoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T14:03:27.342Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "LoginCommand.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\Auth\\Commands\\LoginCommand.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Application\\Features\\Auth\\Commands\\LoginCommand.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\Auth\\Commands\\LoginCommand.cs",
+              "RelativeToolTip": "PeopleHub.Application\\Features\\Auth\\Commands\\LoginCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T14:03:13.981Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "GetAllPeopleHandler.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Handlers\\GetAllPeopleHandler.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Application\\Features\\People\\Handlers\\GetAllPeopleHandler.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Handlers\\GetAllPeopleHandler.cs",
+              "RelativeToolTip": "PeopleHub.Application\\Features\\People\\Handlers\\GetAllPeopleHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T14:02:53.496Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "DeletePersonHandler.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Handlers\\DeletePersonHandler.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Application\\Features\\People\\Handlers\\DeletePersonHandler.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Handlers\\DeletePersonHandler.cs",
+              "RelativeToolTip": "PeopleHub.Application\\Features\\People\\Handlers\\DeletePersonHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T14:02:44.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "UpdatePersonHandler.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Handlers\\UpdatePersonHandler.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Application\\Features\\People\\Handlers\\UpdatePersonHandler.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Handlers\\UpdatePersonHandler.cs",
+              "RelativeToolTip": "PeopleHub.Application\\Features\\People\\Handlers\\UpdatePersonHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T14:02:35.607Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "JwtService.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Infrastructure\\Services\\JwtService.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Infrastructure\\Services\\JwtService.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Infrastructure\\Services\\JwtService.cs",
+              "RelativeToolTip": "PeopleHub.Infrastructure\\Services\\JwtService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:58:21.721Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Infrastructure\\Repositories\\UserRepository.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "PeopleHub.Infrastructure\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAABRwC8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:56:47.858Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "PersonRepository.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Infrastructure\\Repositories\\PersonRepository.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Infrastructure\\Repositories\\PersonRepository.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Infrastructure\\Repositories\\PersonRepository.cs",
+              "RelativeToolTip": "PeopleHub.Infrastructure\\Repositories\\PersonRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:56:39.181Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "PeopleHub.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAABAAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:56:25.097Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "GetPersonByIdHandler.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Handlers\\GetPersonByIdHandler.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Application\\Features\\People\\Handlers\\GetPersonByIdHandler.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Handlers\\GetPersonByIdHandler.cs",
+              "RelativeToolTip": "PeopleHub.Application\\Features\\People\\Handlers\\GetPersonByIdHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:54:26.816Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "CreatePersonHandler.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Handlers\\CreatePersonHandler.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Application\\Features\\People\\Handlers\\CreatePersonHandler.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Handlers\\CreatePersonHandler.cs",
+              "RelativeToolTip": "PeopleHub.Application\\Features\\People\\Handlers\\CreatePersonHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:54:17.407Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "GetAllPeopleQuery.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Queries\\GetAllPeopleQuery.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Application\\Features\\People\\Queries\\GetAllPeopleQuery.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Queries\\GetAllPeopleQuery.cs",
+              "RelativeToolTip": "PeopleHub.Application\\Features\\People\\Queries\\GetAllPeopleQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:53:58.475Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "GetPersonByIdQuery.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Queries\\GetPersonByIdQuery.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Application\\Features\\People\\Queries\\GetPersonByIdQuery.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Queries\\GetPersonByIdQuery.cs",
+              "RelativeToolTip": "PeopleHub.Application\\Features\\People\\Queries\\GetPersonByIdQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:53:52.43Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "DeletePersonCommand.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Commands\\DeletePersonCommand.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Application\\Features\\People\\Commands\\DeletePersonCommand.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Commands\\DeletePersonCommand.cs",
+              "RelativeToolTip": "PeopleHub.Application\\Features\\People\\Commands\\DeletePersonCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:53:45.331Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "UpdatePersonCommand.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Commands\\UpdatePersonCommand.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Application\\Features\\People\\Commands\\UpdatePersonCommand.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Commands\\UpdatePersonCommand.cs",
+              "RelativeToolTip": "PeopleHub.Application\\Features\\People\\Commands\\UpdatePersonCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:53:38.929Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "CreatePersonCommand.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Commands\\CreatePersonCommand.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Application\\Features\\People\\Commands\\CreatePersonCommand.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\Features\\People\\Commands\\CreatePersonCommand.cs",
+              "RelativeToolTip": "PeopleHub.Application\\Features\\People\\Commands\\CreatePersonCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:53:32.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\DTOs\\LoginDto.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Application\\DTOs\\LoginDto.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\DTOs\\LoginDto.cs",
+              "RelativeToolTip": "PeopleHub.Application\\DTOs\\LoginDto.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAUwDwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:53:10.732Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "PersonDtoV2.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\DTOs\\PersonDtoV2.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Application\\DTOs\\PersonDtoV2.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\DTOs\\PersonDtoV2.cs",
+              "RelativeToolTip": "PeopleHub.Application\\DTOs\\PersonDtoV2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:51:50.67Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "PersonDtoV1.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\DTOs\\PersonDtoV1.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Application\\DTOs\\PersonDtoV1.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\DTOs\\PersonDtoV1.cs",
+              "RelativeToolTip": "PeopleHub.Application\\DTOs\\PersonDtoV1.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:51:43.302Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Domain\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Domain\\Interfaces\\IUserRepository.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Domain\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "PeopleHub.Domain\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAIBXwAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:51:24.978Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "IPersonRepository.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Domain\\Interfaces\\IPersonRepository.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Domain\\Interfaces\\IPersonRepository.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Domain\\Interfaces\\IPersonRepository.cs",
+              "RelativeToolTip": "PeopleHub.Domain\\Interfaces\\IPersonRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:51:18.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "User.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Domain\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Domain\\Entities\\User.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Domain\\Entities\\User.cs",
+              "RelativeToolTip": "PeopleHub.Domain\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:50:55.188Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "PeopleHub.Application.csproj",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\PeopleHub.Application.csproj",
+              "RelativeDocumentMoniker": "PeopleHub.Application\\PeopleHub.Application.csproj",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Application\\PeopleHub.Application.csproj",
+              "RelativeToolTip": "PeopleHub.Application\\PeopleHub.Application.csproj",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-27T13:48:08.24Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "BaseEntity.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Domain\\Common\\BaseEntity.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Domain\\Common\\BaseEntity.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Domain\\Common\\BaseEntity.cs",
+              "RelativeToolTip": "PeopleHub.Domain\\Common\\BaseEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:47:44.536Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Person.cs",
+              "DocumentMoniker": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Domain\\Entities\\Person.cs",
+              "RelativeDocumentMoniker": "PeopleHub.Domain\\Entities\\Person.cs",
+              "ToolTip": C:\\Users\\theuz\\source\\repos\\PeopleHub.API\\PeopleHub.Domain\\Entities\\Person.cs",
+              "RelativeToolTip": "PeopleHub.Domain\\Entities\\Person.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T13:47:35.835Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

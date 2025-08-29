@@ -1,0 +1,21 @@
+﻿{
+  "ConnectionStrings": {
+    "DefaultConnection": "workstation id=Teste;packet size=4096;user id=teste;pwd=teste;data source=PeopleManager.mssql.somee.com;persist security info=False;initial catalog=PeopleManager;TrustServerCertificate=True"
+  },
+  "Jwt": {
+    "SecretKey": "MySecretKeyForJWTTokenGeneration123456789",
+    "Issuer": "PeopleHubAPI",
+    "Audience": "PeopleHubUsers"
+  },
+  "CORS": {
+    "Policy": "AllowAnyOrigin",
+    "Description": "API aceita requisições de qualquer origem (*)"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}

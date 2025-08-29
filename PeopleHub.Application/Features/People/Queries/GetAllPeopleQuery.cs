@@ -1,0 +1,9 @@
+using MediatR;
+using PeopleHub.Application.DTOs;
+
+namespace PeopleHub.Application.Features.People.Queries
+{
+    public class GetAllPeopleQuery : IRequest<IEnumerable<PersonDtoV1>>
+    {
+    }
+}

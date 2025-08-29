@@ -1,0 +1,69 @@
+﻿using PeopleHub.Domain.Common;
+
+namespace PeopleHub.Domain.Entities
+{
+    public class Person : BaseEntity
+    {
+        public string Name { get; set; } = string.Empty;
+        public string? Gender { get; set; }
+        public string? Email { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string? PlaceOfBirth { get; set; }
+        public string? Nationality { get; set; }
+        public string CPF { get; set; } = string.Empty;
+        public string? Address { get; set; } // Para versão 2 da API
+    }
+}
+
+namespace PeopleHub.Domain.Entities
+{
+    public class User : BaseEntity
+    {
+        public string Username { get; set; } = string.Empty;
+        public string PasswordHash { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public bool IsActive { get; set; } = true;
+    }
+}
+
+namespace PeopleHub.Domain.Common
+{
+    public abstract class BaseEntity
+    {
+        public int Id { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+    }
+}
+
+namespace PeopleHub.Domain.Interfaces
+{
+    public interface IRepository<T> where T : BaseEntity
+    {
+        Task<T?> GetByIdAsync(int id);
+        Task<IEnumerable<T>> GetAllAsync();
+        Task<T> AddAsync(T entity);
+        Task<T> UpdateAsync(T entity);
+        Task DeleteAsync(int id);
+    }
+
+    public interface IPersonRepository : IRepository<Person>
+    {
+        Task<Person?> GetByCPFAsync(string cpf);
+        Task<bool> CPFExistsAsync(string cpf);
+        Task<IEnumerable<Person>> SearchAsync(string searchTerm);
+    }
+
+    public interface IUserRepository : IRepository<User>
+    {
+        Task<User?> GetByUsernameAsync(string username);
+        Task<User?> GetByEmailAsync(string email);
+    }
+
+    public interface IUnitOfWork
+    {
+        IPersonRepository Persons { get; }
+        IUserRepository Users { get; }
+        Task<int> CompleteAsync();
+    }
+}

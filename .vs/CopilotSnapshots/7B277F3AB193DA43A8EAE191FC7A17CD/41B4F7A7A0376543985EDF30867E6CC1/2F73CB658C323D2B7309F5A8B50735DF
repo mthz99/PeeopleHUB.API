@@ -1,0 +1,83 @@
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using PeopleHub.Application.DTOs;
+using PeopleHub.Application.Features.Auth.Commands;
+
+namespace PeopleHub.API.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AuthController : ControllerBase
+    {
+        private readonly IMediator _mediator;
+
+        public AuthController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+        /// <summary>
+        /// Realiza login do usuário
+        /// </summary>
+        /// <param name="loginDto">Credenciais do usuário</param>
+        /// <returns>Token JWT</returns>
+        [HttpPost("login")]
+        public async Task<ActionResult<LoginResponseDto>> Login([FromBody] LoginDto loginDto)
+        {
+            try
+            {
+                LoginCommand command = new LoginCommand
+                {
+                    Username = loginDto.Username,
+                    Password = loginDto.Password
+                };
+
+                LoginResponseDto result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Erro interno do servidor", details = ex.Message });
+            }
+        }
+
+        /// <summary>
+        /// Registra um novo usuário
+        /// </summary>
+        /// <param name="registerDto">Dados para registro do usuário</param>
+        /// <returns>Confirmação do registro</returns>
+        [HttpPost("register")]
+        public async Task<ActionResult<RegisterResponseDto>> Register([FromBody] RegisterDto registerDto)
+        {
+            try
+            {
+                RegisterCommand command = new RegisterCommand
+                {
+                    Nome = registerDto.Nome,
+                    Sexo = registerDto.Sexo,
+                    Email = registerDto.Email,
+                    DataNascimento = registerDto.DataNascimento,
+                    Naturalidade = registerDto.Naturalidade,
+                    Nacionalidade = registerDto.Nacionalidade,
+                    CPF = registerDto.CPF,
+                    Password = registerDto.Password
+                };
+
+                RegisterResponseDto result = await _mediator.Send(command);
+                return CreatedAtAction(nameof(Login), result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Erro interno do servidor", details = ex.Message });
+            }
+        }
+    }
+}

@@ -1,0 +1,223 @@
+﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using PeopleHub.Application.DTOs;
+using PeopleHub.Application.Features.People.Commands;
+using PeopleHub.Application.Features.People.Queries;
+
+namespace PeopleHub.API.Controllers.version2
+{
+    [ApiController]
+    [ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    [Authorize]
+    public class PeopleHubController : ControllerBase
+    {
+        private readonly IMediator _mediator;
+
+        public PeopleHubController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+        /// <summary>
+        /// Obtém todas as pessoas
+        /// </summary>
+        /// <returns>Lista de pessoas</returns>
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<PersonDtoV2>>> GetAll()
+        {
+            try
+            {
+                IEnumerable<PersonDtoV1> result = await _mediator.Send(new GetAllPeopleQuery());
+                IEnumerable<PersonDtoV2> resultV2 = result.Select(p => new PersonDtoV2
+                {
+                    Id = p.Id,
+                    Nome = p.Nome,
+                    Sexo = p.Sexo,
+                    Email = p.Email,
+                    DataNascimento = p.DataNascimento,
+                    Naturalidade = p.Naturalidade,
+                    Nacionalidade = p.Nacionalidade,
+                    CPF = p.CPF,
+                    CreatedAt = p.CreatedAt,
+                    UpdatedAt = p.UpdatedAt,
+                    Endereco = string.Empty // Para dados antigos sem endereço
+                });
+                return Ok(resultV2);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Erro interno do servidor", details = ex.Message });
+            }
+        }
+
+        /// <summary>
+        /// Obtém uma pessoa por ID
+        /// </summary>
+        /// <param name="id">ID da pessoa</param>
+        /// <returns>Dados da pessoa</returns>
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PersonDtoV2>> GetById(int id)
+        {
+            try
+            {
+                PersonDtoV1? result = await _mediator.Send(new GetPersonByIdQuery(id));
+                if (result == null)
+                {
+                    return NotFound(new { message = "Pessoa não encontrada" });
+                }
+
+                PersonDtoV2 resultV2 = new PersonDtoV2
+                {
+                    Id = result.Id,
+                    Nome = result.Nome,
+                    Sexo = result.Sexo,
+                    Email = result.Email,
+                    DataNascimento = result.DataNascimento,
+                    Naturalidade = result.Naturalidade,
+                    Nacionalidade = result.Nacionalidade,
+                    CPF = result.CPF,
+                    CreatedAt = result.CreatedAt,
+                    UpdatedAt = result.UpdatedAt,
+                    Endereco = string.Empty // Para dados antigos sem endereço
+                };
+
+                return Ok(resultV2);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Erro interno do servidor", details = ex.Message });
+            }
+        }
+
+        /// <summary>
+        /// Cria uma nova pessoa (V2 - endereço obrigatório)
+        /// </summary>
+        /// <param name="personDto">Dados da pessoa</param>
+        /// <returns>Pessoa criada</returns>
+        [HttpPost]
+        public async Task<ActionResult<PersonDtoV2>> Create([FromBody] PersonDtoV2 personDto)
+        {
+            try
+            {
+                CreatePersonCommand command = new CreatePersonCommand
+                {
+                    Nome = personDto.Nome,
+                    Sexo = personDto.Sexo,
+                    Email = personDto.Email,
+                    DataNascimento = personDto.DataNascimento,
+                    Naturalidade = personDto.Naturalidade,
+                    Nacionalidade = personDto.Nacionalidade,
+                    CPF = personDto.CPF,
+                    Endereco = personDto.Endereco
+                };
+
+                PersonDtoV1 result = await _mediator.Send(command);
+                PersonDtoV2 resultV2 = new PersonDtoV2
+                {
+                    Id = result.Id,
+                    Nome = result.Nome,
+                    Sexo = result.Sexo,
+                    Email = result.Email,
+                    DataNascimento = result.DataNascimento,
+                    Naturalidade = result.Naturalidade,
+                    Nacionalidade = result.Nacionalidade,
+                    CPF = result.CPF,
+                    CreatedAt = result.CreatedAt,
+                    UpdatedAt = result.UpdatedAt,
+                    Endereco = personDto.Endereco
+                };
+
+                return CreatedAtAction(nameof(GetById), new { id = result.Id }, resultV2);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Erro interno do servidor", details = ex.Message });
+            }
+        }
+
+        /// <summary>
+        /// Atualiza uma pessoa existente (V2 - endereço obrigatório)
+        /// </summary>
+        /// <param name="id">ID da pessoa</param>
+        /// <param name="personDto">Dados atualizados da pessoa</param>
+        /// <returns>Pessoa atualizada</returns>
+        [HttpPut("{id}")]
+        public async Task<ActionResult<PersonDtoV2>> Update(int id, [FromBody] PersonDtoV2 personDto)
+        {
+            try
+            {
+                UpdatePersonCommand command = new UpdatePersonCommand
+                {
+                    Id = id,
+                    Nome = personDto.Nome,
+                    Sexo = personDto.Sexo,
+                    Email = personDto.Email,
+                    DataNascimento = personDto.DataNascimento,
+                    Naturalidade = personDto.Naturalidade,
+                    Nacionalidade = personDto.Nacionalidade,
+                    CPF = personDto.CPF,
+                    Endereco = personDto.Endereco
+                };
+
+                PersonDtoV1 result = await _mediator.Send(command);
+                PersonDtoV2 resultV2 = new PersonDtoV2
+                {
+                    Id = result.Id,
+                    Nome = result.Nome,
+                    Sexo = result.Sexo,
+                    Email = result.Email,
+                    DataNascimento = result.DataNascimento,
+                    Naturalidade = result.Naturalidade,
+                    Nacionalidade = result.Nacionalidade,
+                    CPF = result.CPF,
+                    CreatedAt = result.CreatedAt,
+                    UpdatedAt = result.UpdatedAt,
+                    Endereco = personDto.Endereco
+                };
+
+                return Ok(resultV2);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Erro interno do servidor", details = ex.Message });
+            }
+        }
+
+        /// <summary>
+        /// Remove uma pessoa
+        /// </summary>
+        /// <param name="id">ID da pessoa</param>
+        /// <returns>Resultado da operação</returns>
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            try
+            {
+                bool result = await _mediator.Send(new DeletePersonCommand(id));
+                if (!result)
+                {
+                    return NotFound(new { message = "Pessoa não encontrada" });
+                }
+                return NoContent();
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Erro interno do servidor", details = ex.Message });
+            }
+        }
+    }
+}

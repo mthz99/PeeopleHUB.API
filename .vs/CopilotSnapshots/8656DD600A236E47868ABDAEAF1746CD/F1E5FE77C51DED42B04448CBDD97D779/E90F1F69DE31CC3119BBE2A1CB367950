@@ -1,0 +1,447 @@
+﻿using MediatR;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Moq;
+using PeopleHub.API.Controllers.version2;
+using PeopleHub.Application.DTOs;
+using PeopleHub.Application.Features.People.Commands;
+using PeopleHub.Application.Features.People.Queries;
+
+namespace PeopleHub.Test.Controllers.Version2
+{
+    public class PeopleHubControllerV2Tests
+    {
+        private readonly Mock<IMediator> _mediatorMock;
+        private readonly PeopleHubController _controller;
+
+        public PeopleHubControllerV2Tests()
+        {
+            _mediatorMock = new Mock<IMediator>();
+            _controller = new PeopleHubController(_mediatorMock.Object);
+        }
+
+        #region GetAll Tests
+
+        [Fact]
+        public async Task GetAll_ReturnsOkWithPeopleListV2()
+        {
+            // Arrange
+            var expectedPeopleV1 = new List<PersonDtoV1>
+            {
+                new PersonDtoV1 
+                { 
+                    Id = 1, 
+                    Nome = "João Silva", 
+                    CPF = "12345678901",
+                    DataNascimento = new DateTime(1990, 5, 15),
+                    Email = "joao@email.com"
+                },
+                new PersonDtoV1 
+                { 
+                    Id = 2, 
+                    Nome = "Maria Santos", 
+                    CPF = "98765432109",
+                    DataNascimento = new DateTime(1985, 3, 22),
+                    Email = "maria@email.com"
+                }
+            };
+
+            _mediatorMock
+                .Setup(m => m.Send(It.IsAny<GetAllPeopleQuery>(), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(expectedPeopleV1);
+
+            // Act
+            var result = await _controller.GetAll();
+
+            // Assert
+            var okResult = Assert.IsType<OkObjectResult>(result.Result);
+            var returnValue = Assert.IsAssignableFrom<IEnumerable<PersonDtoV2>>(okResult.Value);
+            Assert.Equal(2, returnValue.Count());
+            
+            var firstPerson = returnValue.First();
+            Assert.Equal(expectedPeopleV1.First().Nome, firstPerson.Nome);
+            Assert.Equal(expectedPeopleV1.First().CPF, firstPerson.CPF);
+        }
+
+        [Fact]
+        public async Task GetAll_WithException_ReturnsInternalServerError()
+        {
+            // Arrange
+            _mediatorMock
+                .Setup(m => m.Send(It.IsAny<GetAllPeopleQuery>(), It.IsAny<CancellationToken>()))
+                .ThrowsAsync(new Exception("Database connection failed"));
+
+            // Act
+            var result = await _controller.GetAll();
+
+            // Assert
+            var statusCodeResult = Assert.IsType<ObjectResult>(result.Result);
+            Assert.Equal(StatusCodes.Status500InternalServerError, statusCodeResult.StatusCode);
+        }
+
+        #endregion
+
+        #region GetById Tests
+
+        [Fact]
+        public async Task GetById_WithExistingId_ReturnsOkWithPersonV2()
+        {
+            // Arrange
+            var personId = 1;
+            var expectedPersonV1 = new PersonDtoV1
+            {
+                Id = personId,
+                Nome = "João Silva",
+                CPF = "12345678901",
+                DataNascimento = new DateTime(1990, 5, 15),
+                Email = "joao@email.com",
+                Sexo = "M",
+                Naturalidade = "São Paulo",
+                Nacionalidade = "Brasileira"
+            };
+
+            _mediatorMock
+                .Setup(m => m.Send(It.Is<GetPersonByIdQuery>(q => q.Id == personId), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(expectedPersonV1);
+
+            // Act
+            var result = await _controller.GetById(personId);
+
+            // Assert
+            var okResult = Assert.IsType<OkObjectResult>(result.Result);
+            var returnValue = Assert.IsType<PersonDtoV2>(okResult.Value);
+            Assert.Equal(expectedPersonV1.Id, returnValue.Id);
+            Assert.Equal(expectedPersonV1.Nome, returnValue.Nome);
+            Assert.Equal(expectedPersonV1.CPF, returnValue.CPF);
+            Assert.Equal(expectedPersonV1.Email, returnValue.Email);
+        }
+
+        [Fact]
+        public async Task GetById_WithNonExistingId_ReturnsNotFound()
+        {
+            // Arrange
+            var personId = 999;
+
+            _mediatorMock
+                .Setup(m => m.Send(It.Is<GetPersonByIdQuery>(q => q.Id == personId), It.IsAny<CancellationToken>()))
+                .ReturnsAsync((PersonDtoV1?)null);
+
+            // Act
+            var result = await _controller.GetById(personId);
+
+            // Assert
+            var notFoundResult = Assert.IsType<NotFoundObjectResult>(result.Result);
+            Assert.NotNull(notFoundResult.Value);
+        }
+
+        [Fact]
+        public async Task GetById_WithException_ReturnsInternalServerError()
+        {
+            // Arrange
+            var personId = 1;
+
+            _mediatorMock
+                .Setup(m => m.Send(It.Is<GetPersonByIdQuery>(q => q.Id == personId), It.IsAny<CancellationToken>()))
+                .ThrowsAsync(new Exception("Database connection failed"));
+
+            // Act
+            var result = await _controller.GetById(personId);
+
+            // Assert
+            var statusCodeResult = Assert.IsType<ObjectResult>(result.Result);
+            Assert.Equal(StatusCodes.Status500InternalServerError, statusCodeResult.StatusCode);
+        }
+
+        #endregion
+
+        #region Create Tests
+
+        [Fact]
+        public async Task Create_WithValidDataV2_ReturnsCreated()
+        {
+            // Arrange
+            var personDtoV2 = new PersonDtoV2
+            {
+                Nome = "João Silva",
+                Sexo = "M",
+                Email = "joao@email.com",
+                DataNascimento = new DateTime(1990, 5, 15),
+                Naturalidade = "São Paulo",
+                Nacionalidade = "Brasileira",
+                CPF = "12345678901",
+                Endereco = "Rua das Flores, 123, São Paulo, SP"
+            };
+
+            var expectedResultV1 = new PersonDtoV1
+            {
+                Id = 1,
+                Nome = personDtoV2.Nome,
+                Sexo = personDtoV2.Sexo,
+                Email = personDtoV2.Email,
+                DataNascimento = personDtoV2.DataNascimento,
+                Naturalidade = personDtoV2.Naturalidade,
+                Nacionalidade = personDtoV2.Nacionalidade,
+                CPF = personDtoV2.CPF
+            };
+
+            _mediatorMock
+                .Setup(m => m.Send(It.IsAny<CreatePersonCommand>(), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(expectedResultV1);
+
+            // Act
+            var result = await _controller.Create(personDtoV2);
+
+            // Assert
+            var createdResult = Assert.IsType<CreatedAtActionResult>(result.Result);
+            var returnValue = Assert.IsType<PersonDtoV2>(createdResult.Value);
+            Assert.Equal(expectedResultV1.Id, returnValue.Id);
+            Assert.Equal(expectedResultV1.Nome, returnValue.Nome);
+            Assert.Equal(expectedResultV1.CPF, returnValue.CPF);
+            Assert.Equal(personDtoV2.Endereco, returnValue.Endereco);
+            Assert.Equal("GetById", createdResult.ActionName);
+        }
+
+        [Fact]
+        public async Task Create_WithMissingAddress_ReturnsBadRequest()
+        {
+            // Arrange
+            var personDtoV2 = new PersonDtoV2
+            {
+                Nome = "João Silva",
+                CPF = "12345678901",
+                DataNascimento = new DateTime(1990, 5, 15)
+                // Missing Endereco - required in V2
+            };
+
+            _mediatorMock
+                .Setup(m => m.Send(It.IsAny<CreatePersonCommand>(), It.IsAny<CancellationToken>()))
+                .ThrowsAsync(new ArgumentException("Endereço é obrigatório na versão 2.0"));
+
+            // Act
+            var result = await _controller.Create(personDtoV2);
+
+            // Assert
+            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result.Result);
+            Assert.NotNull(badRequestResult.Value);
+        }
+
+        [Fact]
+        public async Task Create_WithInvalidCPF_ReturnsBadRequest()
+        {
+            // Arrange
+            var personDtoV2 = new PersonDtoV2
+            {
+                Nome = "João Silva",
+                CPF = "invalid_cpf",
+                DataNascimento = new DateTime(1990, 5, 15),
+                Endereco = "Rua das Flores, 123"
+            };
+
+            _mediatorMock
+                .Setup(m => m.Send(It.IsAny<CreatePersonCommand>(), It.IsAny<CancellationToken>()))
+                .ThrowsAsync(new ArgumentException("CPF inválido"));
+
+            // Act
+            var result = await _controller.Create(personDtoV2);
+
+            // Assert
+            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result.Result);
+            Assert.NotNull(badRequestResult.Value);
+        }
+
+        [Fact]
+        public async Task Create_WithException_ReturnsInternalServerError()
+        {
+            // Arrange
+            var personDtoV2 = new PersonDtoV2
+            {
+                Nome = "João Silva",
+                CPF = "12345678901",
+                DataNascimento = new DateTime(1990, 5, 15),
+                Endereco = "Rua das Flores, 123"
+            };
+
+            _mediatorMock
+                .Setup(m => m.Send(It.IsAny<CreatePersonCommand>(), It.IsAny<CancellationToken>()))
+                .ThrowsAsync(new Exception("Database connection failed"));
+
+            // Act
+            var result = await _controller.Create(personDtoV2);
+
+            // Assert
+            var statusCodeResult = Assert.IsType<ObjectResult>(result.Result);
+            Assert.Equal(StatusCodes.Status500InternalServerError, statusCodeResult.StatusCode);
+        }
+
+        #endregion
+
+        #region Update Tests
+
+        [Fact]
+        public async Task Update_WithValidDataV2_ReturnsOk()
+        {
+            // Arrange
+            var personId = 1;
+            var personDtoV2 = new PersonDtoV2
+            {
+                Nome = "João Silva Updated",
+                Sexo = "M",
+                Email = "joao.updated@email.com",
+                DataNascimento = new DateTime(1990, 5, 15),
+                Naturalidade = "São Paulo",
+                Nacionalidade = "Brasileira",
+                CPF = "12345678901",
+                Endereco = "Rua das Flores Atualizadas, 456, São Paulo, SP"
+            };
+
+            var expectedResultV1 = new PersonDtoV1
+            {
+                Id = personId,
+                Nome = personDtoV2.Nome,
+                Sexo = personDtoV2.Sexo,
+                Email = personDtoV2.Email,
+                DataNascimento = personDtoV2.DataNascimento,
+                Naturalidade = personDtoV2.Naturalidade,
+                Nacionalidade = personDtoV2.Nacionalidade,
+                CPF = personDtoV2.CPF
+            };
+
+            _mediatorMock
+                .Setup(m => m.Send(It.IsAny<UpdatePersonCommand>(), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(expectedResultV1);
+
+            // Act
+            var result = await _controller.Update(personId, personDtoV2);
+
+            // Assert
+            var okResult = Assert.IsType<OkObjectResult>(result.Result);
+            var returnValue = Assert.IsType<PersonDtoV2>(okResult.Value);
+            Assert.Equal(expectedResultV1.Id, returnValue.Id);
+            Assert.Equal(expectedResultV1.Nome, returnValue.Nome);
+            Assert.Equal(personDtoV2.Endereco, returnValue.Endereco);
+        }
+
+        [Fact]
+        public async Task Update_WithMissingAddress_ReturnsBadRequest()
+        {
+            // Arrange
+            var personId = 1;
+            var personDtoV2 = new PersonDtoV2
+            {
+                Nome = "João Silva",
+                CPF = "12345678901",
+                DataNascimento = new DateTime(1990, 5, 15)
+                // Missing Endereco - required in V2
+            };
+
+            _mediatorMock
+                .Setup(m => m.Send(It.IsAny<UpdatePersonCommand>(), It.IsAny<CancellationToken>()))
+                .ThrowsAsync(new ArgumentException("Endereço é obrigatório na versão 2.0"));
+
+            // Act
+            var result = await _controller.Update(personId, personDtoV2);
+
+            // Assert
+            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result.Result);
+            Assert.NotNull(badRequestResult.Value);
+        }
+
+        [Fact]
+        public async Task Update_WithInvalidData_ReturnsBadRequest()
+        {
+            // Arrange
+            var personId = 1;
+            var personDtoV2 = new PersonDtoV2
+            {
+                Nome = "João Silva",
+                CPF = "invalid_cpf",
+                DataNascimento = new DateTime(1990, 5, 15),
+                Endereco = "Rua das Flores, 123"
+            };
+
+            _mediatorMock
+                .Setup(m => m.Send(It.IsAny<UpdatePersonCommand>(), It.IsAny<CancellationToken>()))
+                .ThrowsAsync(new ArgumentException("CPF inválido"));
+
+            // Act
+            var result = await _controller.Update(personId, personDtoV2);
+
+            // Assert
+            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result.Result);
+            Assert.NotNull(badRequestResult.Value);
+        }
+
+        #endregion
+
+        #region Delete Tests
+
+        [Fact]
+        public async Task Delete_WithExistingId_ReturnsNoContent()
+        {
+            // Arrange
+            var personId = 1;
+
+            _mediatorMock
+                .Setup(m => m.Send(It.Is<DeletePersonCommand>(c => c.Id == personId), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(true);
+
+            // Act
+            var result = await _controller.Delete(personId);
+
+            // Assert
+            Assert.IsType<NoContentResult>(result);
+        }
+
+        [Fact]
+        public async Task Delete_WithNonExistingId_ReturnsNotFound()
+        {
+            // Arrange
+            var personId = 999;
+
+            _mediatorMock
+                .Setup(m => m.Send(It.Is<DeletePersonCommand>(c => c.Id == personId), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(false);
+
+            // Act
+            var result = await _controller.Delete(personId);
+
+            // Assert
+            var notFoundResult = Assert.IsType<NotFoundObjectResult>(result);
+            Assert.NotNull(notFoundResult.Value);
+        }
+
+        [Fact]
+        public async Task Delete_WithException_ReturnsInternalServerError()
+        {
+            // Arrange
+            var personId = 1;
+
+            _mediatorMock
+                .Setup(m => m.Send(It.Is<DeletePersonCommand>(c => c.Id == personId), It.IsAny<CancellationToken>()))
+                .ThrowsAsync(new Exception("Database connection failed"));
+
+            // Act
+            var result = await _controller.Delete(personId);
+
+            // Assert
+            var statusCodeResult = Assert.IsType<ObjectResult>(result);
+            Assert.Equal(StatusCodes.Status500InternalServerError, statusCodeResult.StatusCode);
+        }
+
+        #endregion
+
+        #region Constructor Tests
+
+        [Fact]
+        public void Constructor_WithValidMediator_CreatesInstance()
+        {
+            // Arrange & Act
+            var controller = new PeopleHubController(_mediatorMock.Object);
+
+            // Assert
+            Assert.NotNull(controller);
+        }
+
+        #endregion
+    }
+}
